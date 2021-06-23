@@ -7,7 +7,7 @@ use App\Models\Year;
 use Livewire\WithPagination;
 use Livewire\Component;
 
-class StudentsTable extends Component
+class StudentTable extends Component
 {
     use WithPagination;
 
@@ -28,11 +28,11 @@ class StudentsTable extends Component
 
     public function render()
     {
-        return view('livewire.students-table', [
+        return view('livewire.student-table', [
             'students' => Student::query()
                 ->Where('name', 'like', '%' . $this->search. '%')
-                ->Where('year_id', 'like', '%' . $this->filterAngkatan. '%')
-                ->Where('major_id', 'like', '%' . $this->filterJurusan. '%')
+                ->Where('year_id', 'like', '%' . $this->filterAngkatan)
+                ->Where('major', 'like', '%' . $this->filterJurusan)
                 ->with(['angkatan', 'jurusan'])
                 ->simplePaginate($this->perPage),
         ]);

@@ -27,7 +27,7 @@ class Student extends Model
 
     public function jurusan()
     {
-        return $this->belongsTo(Major::class, 'major_id');
+        return $this->belongsTo(Major::class, 'major', 'slug');
     }
 
     public function trace()

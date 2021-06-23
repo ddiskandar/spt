@@ -18,8 +18,9 @@ class CreateStudentsTable extends Migration
             $table->uuid('uuid')->unique();
             $table->string('name');
             $table->string('nipd', 10);
+            $table->char('jk', 1);
             $table->foreignId('year_id')->constrained();
-            $table->foreignId('major_id')->constrained();
+            $table->string('major');
             $table->foreignId('user_id')->nullable();
             $table->date('birth_date')->nullable();
             $table->timestamps();

@@ -16,19 +16,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('years')->insert([
-            ['name' => '2009'],
-            ['name' => '2010'],
-            ['name' => '2011'],
-            ['name' => '2012'],
-            ['name' => '2013'],
-            ['name' => '2014'],
-            ['name' => '2015'],
-            ['name' => '2016'],
-            ['name' => '2017'],
-            ['name' => '2018'],
-            ['name' => '2019'],
-            ['name' => '2020'],
-            ['name' => '2021'],
+            ['id' => 2009, 'name' => '2008/2009'],
+            ['id' => 2010, 'name' => '2009/2010'],
+            ['id' => 2011, 'name' => '2010/2011'],
+            ['id' => 2012, 'name' => '2011/2012'],
+            ['id' => 2013, 'name' => '2012/2013'],
+            ['id' => 2014, 'name' => '2013/2014'],
+            ['id' => 2015, 'name' => '2014/2015'],
+            ['id' => 2016, 'name' => '2015/2016'],
+            ['id' => 2017, 'name' => '2016/2017'],
+            ['id' => 2018, 'name' => '2017/2018'],
+            ['id' => 2019, 'name' => '2018/2019'],
+            ['id' => 2020, 'name' => '2019/2020'],
+            ['id' => 2021, 'name' => '2020/2021'],
+            ['id' => 2022, 'name' => '2021/2022'],
+            ['id' => 2023, 'name' => '2022/2023'],
+            
         ]);
 
         DB::table('activities')->insert([
@@ -47,9 +50,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('majors')->insert([
-            ['name' => 'Multimedia'],
-            ['name' => 'Bisnis Daring dan Pemasaran'],
-            ['name' => 'Agribisnis Pengolahan Hasil Pertanian'],
+            ['slug' => 'MM', 'name' => 'Multimedia'],
+            ['slug' => 'BDP', 'name' => 'Bisnis Daring dan Pemasaran'],
+            ['slug' => 'APHP', 'name' => 'Agribisnis Pengolahan Hasil Pertanian'],
+            ['slug' => 'PN', 'name' => 'Pemasaran'],
         ]);
 
         \App\Models\User::create([
@@ -58,15 +62,6 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
             'role' => 'admin',
         ]);
-
-        for ($i=1; $i<100000; $i++) {
-            \App\Models\Student::factory()->create([
-                'year_id' => \App\Models\Year::find(1)->first(),
-                'major_id' => rand(1,3),
-                'uuid' => Str::uuid(),
-                'nipd' => rand(1111111111, 2222222222),
-            ]);
-        }
 
     }
 }

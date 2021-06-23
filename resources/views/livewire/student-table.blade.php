@@ -90,8 +90,8 @@
                         <x-jet-label for="filterAngkatan" value="Angkatan" />
                         <select wire:model="filterAngkatan" id="filterAngkatan" name="filterAngkatan" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
                             <option value=''>Semua</option>
-                            @foreach(\App\Models\Year::all() as $angkatan )
-                            <option value="{{ $angkatan->id }}">{{ $angkatan->name }}</option>
+                            @foreach(\App\Models\Year::latest('id')->get() as $angkatan )
+                            <option value="{{ $angkatan->id }}">{{ $angkatan->id . ' : ' . $angkatan->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -100,7 +100,7 @@
                         <select wire:model="filterJurusan" id="filterJurusan" name="filterSchool" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
                             <option value=''>Semua</option>
                             @foreach(\App\Models\Major::all() as $jurusan )
-                            <option value="{{ $jurusan->id }}">{{ $jurusan->name }}</option>
+                            <option value="{{ $jurusan->slug }}">{{ $jurusan->name }}</option>
                             @endforeach
                         </select>
                     </div>
