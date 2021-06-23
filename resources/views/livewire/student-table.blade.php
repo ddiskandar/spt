@@ -30,6 +30,16 @@
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Angkatan / Jurusan
                                     </th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        L/P
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Tanggal Lahir
+                                    </th>
+
+                                    <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only">Edit</span>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -41,22 +51,51 @@
                                 @forelse($students as $student)
                                 <tr wire:loading.remove>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="w-64 text-sm font-medium text-gray-900 uppercase truncate">
-                                            {{ $student->name }}
-                                        </div>
-                                        <div class="text-sm text-gray-500">
-                                            {{ $student->nipd }}
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 w-10 h-10">
+                                                <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name={{ $student->name }}&color=7F9CF5&background=EBF4FF" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    {{ $student->name }}
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    {{ $student->nipd }}
+                                                </div>
+                                            </div>
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="w-64 text-sm font-medium text-gray-900 uppercase truncate">
+                                        <div class="text-sm font-medium text-gray-900 uppercase truncate">
                                             {{ $student->angkatan->name }}
                                         </div>
                                         <div class="text-sm text-gray-500">
                                             {{ $student->jurusan->name }}
                                         </div>
                                     </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900 uppercase truncate">
+                                            {{ $student->jk }}
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900 uppercase truncate">
+                                            {{ date('d/m/Y', strtotime($student->birth_date)) }}
+                                        </div>
+                                    </td>
 
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center space-x-2 text-gray-400">
+                                            <x-button-icon>
+                                                <x-icon-eye />
+                                            </x-button-icon>
+                                            <x-button-icon>
+                                                <a href="#">
+                                                    <x-icon-pencil-alt />
+                                                </a>
+                                            </x-button-icon>
+                                        </div>
+                                    </td>
                                 </tr>
                                 @empty
                                 <tr wire:loading.remove>
