@@ -16,6 +16,8 @@ class CreateYearsTable extends Migration
         Schema::create('years', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('wa_group')->nullable();
+            $table->timestamps();
         });
     }
 

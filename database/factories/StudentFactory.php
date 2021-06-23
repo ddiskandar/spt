@@ -22,6 +22,7 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
+            'name' => $this->faker->name(),
             'birth_date' => $this->faker->date(),
         ];
     }
