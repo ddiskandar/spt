@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Year;
 use App\Models\Trace;
+use App\Models\Major;
 
 class Student extends Model
 {
@@ -32,6 +33,6 @@ class Student extends Model
 
     public function trace()
     {
-        return $this->belongsTo(Trace::class);
+        return $this->hasOne(Trace::class);
     }
 }

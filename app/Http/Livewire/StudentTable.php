@@ -34,7 +34,7 @@ class StudentTable extends Component
                 ->Where('year_id', 'like', '%' . $this->filterAngkatan)
                 ->Where('major', 'like', '%' . $this->filterJurusan)
                 ->with(['angkatan', 'jurusan'])
-                ->simplePaginate($this->perPage),
+                ->paginate($this->perPage),
         ]);
     }
 }
