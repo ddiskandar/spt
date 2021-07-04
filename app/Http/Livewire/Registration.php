@@ -14,10 +14,11 @@ use Illuminate\Support\Str;
 
 class Registration extends Component
 {
-    public $hasStudentData = false;
+    public $errorMessage = '';
     public $student;
+    public $user;
 
-    public $name = 'adriyansah';
+    public $name = '';
     public $birth_date;
     public $year;
     public $email;
@@ -34,12 +35,21 @@ class Registration extends Component
 
     public function validate_student()
     {
-        $this->hasStudentData = true;
         $this->student = Student::query()
             ->where('name', $this->name)
             ->where('year_id', $this->year)
             ->where('birth_date', $this->birth_date)
             ->first();
+        
+        if (isset($this->student->user_id)) 
+        {
+            $this->errorMessage = 'Akun sudah terdaftar.';
+        }
+
+        if (empty($this->student))
+        {
+            $this->errorMessage = 'Data tidak sesuai.';
+        }
     }
 
     public function store()

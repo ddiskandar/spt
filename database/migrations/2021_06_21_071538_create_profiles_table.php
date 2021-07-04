@@ -26,6 +26,7 @@ class CreateProfilesTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('twitter')->nullable();
             $table->string('youtube')->nullable();
+            $table->string('linkedin')->nullable();
             $table->boolean('published')->default(false);
             $table->timestamps();
         });

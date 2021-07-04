@@ -22,6 +22,8 @@
 
     @isset($student)
 
+    @empty($student->user_id)
+
     <div class="mt-4">
         <x-jet-label for="email" value="{{ __('Alamat Email Aktif') }}" />
         <x-jet-input wire:model.defer="email" id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" />
@@ -37,23 +39,51 @@
         <x-jet-input wire:model.defer="password_confirmation" id="password_confirmation" class="block w-full mt-1" type="password" name="password_confirmation" autocomplete="new-password" />
     </div>
 
-    @endisset
-
     <div class="mt-4">
-        @empty($student)
-        <p wire:click.prevent="validate_student" class="text-sm font-semibold text-indigo-500 uppercase cursor-pointer">Klik untuk validasi data</p>
-        @else
         <x-jet-button class="justify-center w-full py-4 mt-2">
             {{ __('Daftar') }}
         </x-jet-button>
-        @endisset
     </div>
 
-    @if($hasStudentData)
-    @empty($student)
-    <div class="p-6 mt-4 border border-yellow-200 rounded-lg bg-yellow-50">
-        <p class="text-sm text-yellow-600">Tidak ada data yang ditemukan, periksa kembali</p>
+    @else
+
+    @if($errorMessage)
+    <div class="p-4 mt-5 rounded-md bg-yellow-50">
+        <div class="flex">
+            <div class="flex-shrink-0">
+                <!-- Heroicon name: solid/exclamation -->
+                <svg class="w-5 h-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div class="ml-3">
+                <h3 class="text-sm font-medium text-yellow-800">
+                    {{ $errorMessage }}
+                </h3>
+                <div class="mt-2 text-sm text-yellow-700">
+                    @if ($errorMessage == 'Data tidak sesuai.')
+                    <p>
+                        Periksa dan pastikan kembali data yang anda input pada formulir sesuai dengan data kelulusan.
+                    </p>
+                    @else
+                    <p>
+                        Bila ada lupa password, jangan mendaftar kembali, silahkan klik disini
+                    </p>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
-    @endempty
     @endif
+
+    @endempty
+
+    @else
+
+    @endisset
+
+    <div class="mt-4">
+        <a href="#" wire:click.prevent="validate_student" class="text-sm font-semibold text-indigo-500 uppercase cursor-pointer">Klik untuk validasi data</a>
+    </div>
+
 </form>

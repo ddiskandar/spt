@@ -21,6 +21,10 @@ Route::get('/reg', function () {
     return view('pages.register');
 });
 
+Route::get('/input', function () {
+    return view('pages.input');
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
