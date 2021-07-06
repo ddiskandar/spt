@@ -15,6 +15,73 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('activities')->insert([
+            ['name' => 'belum ada aktivitas'],
+            ['name' => 'bekerja'],
+            ['name' => 'melanjutkan'],
+            ['name' => 'wirausaha'],
+        ]);
+
+        DB::table('bonds')->insert([
+            ['name' => 'Sendiri'],
+            ['name' => 'keluarga'],
+            ['name' => 'pekerjaan'],
+        ]);
+
+        DB::table('businesses')->insert([
+            ['name' => 'lorem'],
+            ['name' => 'ipsum'],
+            ['name' => 'dolor'],
+        ]);
+
+        DB::table('dudikas')->insert([
+            ['name' => 'Alfa Pudoki', 'address' => 'Sukabumi'],
+            ['name' => 'Sudinar Artha', 'address' => 'Sukabumi'],
+            ['name' => 'PT. Berkah Bersama', 'address' => 'Sukabumi'],
+        ]);
+
+        DB::table('incomes')->insert([
+            ['name' => 'Kurang dari Rp. 500.000'],
+            ['name' => 'Rp. 500.000 - Rp. 999.000'],
+            ['name' => 'Rp. 1.000.000 - Rp. 1.999.000'],
+            ['name' => 'Rp. 2.000.000 - Rp. 4.999.000'],
+            ['name' => 'Rp. 5.000.000 - Rp. 20.000.000'],
+            ['name' => 'Lebih dari Rp. 20.000.000'],
+            ['name' => 'Tidak berpenghasilan'],
+        ]);
+
+        DB::table('majors')->insert([
+            ['slug' => 'MM', 'name' => 'Multimedia'],
+            ['slug' => 'BDP', 'name' => 'Bisnis Daring dan Pemasaran'],
+            ['slug' => 'APHP', 'name' => 'Agribisnis Pengolahan Hasil Pertanian'],
+            ['slug' => 'PN', 'name' => 'Pemasaran'],
+        ]);
+
+        DB::table('professions')->insert([
+            ['name' => 'Nelayan'],
+            ['name' => 'Petani'],
+            ['name' => 'Peternak'],
+            ['name' => 'PNS/TNI/Polri'],
+            ['name' => 'Karyawan swasta'],
+            ['name' => 'Pedagang kecil'],
+            ['name' => 'Pedagang besar'],
+            ['name' => 'Wiraswasta'],
+            ['name' => 'Wirausaha'],
+            ['name' => 'Buruh'],
+            ['name' => 'Pensiunan'],
+            ['name' => 'Tenaga Kerja Indonesia'],
+            ['name' => 'Tidak dapat diterapkan'],
+            ['name' => 'Lainnya'],
+        ]);
+
+        DB::table('settings')->insert([
+            'school_name' => 'SMK Plus Al-Farhan',
+            'crm_phone' => '085624343181',
+            'dev_name' => 'Dede Iskandar',
+            'app_version' => '0.1',
+            'db_version' => '0.1',
+        ]);
+
         DB::table('years')->insert([
             ['id' => 2009, 'name' => '2008/2009'],
             ['id' => 2010, 'name' => '2009/2010'],
@@ -31,29 +98,7 @@ class DatabaseSeeder extends Seeder
             ['id' => 2021, 'name' => '2020/2021'],
             ['id' => 2022, 'name' => '2021/2022'],
             ['id' => 2023, 'name' => '2022/2023'],
-            
-        ]);
 
-        DB::table('activities')->insert([
-            ['name' => 'belum ada aktivitas'],
-            ['name' => 'bekerja'],
-            ['name' => 'melanjutkan'],
-            ['name' => 'wirausaha'],
-        ]);
-
-        DB::table('settings')->insert([
-            'school_name' => 'SMK Plus Al-Farhan',
-            'crm_phone' => '085624343181',
-            'dev_name' => 'Dede Iskandar',
-            'app_version' => '0.1',
-            'db_version' => '0.1',
-        ]);
-
-        DB::table('majors')->insert([
-            ['slug' => 'MM', 'name' => 'Multimedia'],
-            ['slug' => 'BDP', 'name' => 'Bisnis Daring dan Pemasaran'],
-            ['slug' => 'APHP', 'name' => 'Agribisnis Pengolahan Hasil Pertanian'],
-            ['slug' => 'PN', 'name' => 'Pemasaran'],
         ]);
 
         \App\Models\User::create([

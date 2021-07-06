@@ -12,7 +12,7 @@ class LoginResponse implements LoginResponseContract
      */
     public function toResponse($request)
     {
-        $home = ( auth()->user()->role->first() == 'student' ) ? '/home' : '/dashboard';
+        $home = ( auth()->user()->role->first() == 'student' ) ? '/dashboard' :'/home' ;
 
         return redirect()->intended($home);
     }

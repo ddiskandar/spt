@@ -20,7 +20,6 @@ class CreateTracesTable extends Migration
 
             $table->string('melanjutkan_kampus')->nullable();
             $table->string('melanjutkan_prodi')->nullable();
-            $table->foreignId('cost_id')->nullable();
 
             $table->foreignId('dudika_id')->nullable();
             $table->string('bekerja_nama')->nullable();
@@ -30,8 +29,8 @@ class CreateTracesTable extends Migration
             $table->boolean('bekerja_gaji_standar_umr')->nullable();
             $table->foreignId('income_id')->nullable();
             $table->foreignId('profession_id')->nullable();
-            $table->foreignId('bond_id')->nullable();
             
+            $table->foreignId('bond_id')->nullable();
             $table->boolean('pernah_bekerja')->nullable();
             $table->date('tanggal_masuk')->nullable();
             $table->boolean('linear')->nullable();
