@@ -34,7 +34,7 @@
 
         @isset ($activity_id)
 
-        <div class="w-full col-span-6 my-6 border-t border-gray-200"></div>
+        <div class="w-full col-span-6 border-t border-gray-200"></div>
 
         @if ( $activity_id !== '1')
         <div class="col-span-6 sm:col-span-4">
@@ -50,7 +50,7 @@
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="tanggal_masuk" :value="__('Tanggal memulai aktivitas')" />
+            <x-jet-label for="tanggal_masuk" :value="__('Tanggal memulai aktivitas sekarang')" />
             <x-jet-input id="tanggal_masuk" wire:model.defer="tanggal_masuk" class="block w-full mt-1" type="date" name="tanggal_masuk" />
             <x-jet-input-error for="tanggal_masuk" class="mt-2" />
         </div>
