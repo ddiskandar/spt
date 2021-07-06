@@ -32,12 +32,13 @@ class CreateTracesTable extends Migration
             $table->foreignId('profession_id')->nullable();
             $table->foreignId('bond_id')->nullable();
             
-            $table->boolean('linear')->nullable();
             $table->boolean('pernah_bekerja')->nullable();
             $table->date('tanggal_masuk')->nullable();
+            $table->boolean('linear')->nullable();
 
             $table->foreignId('business_id')->nullable();
             $table->string('business_name')->nullable();
+
             $table->timestamps();
         });
     }

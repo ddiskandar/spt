@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/reg', function () {
-    return view('pages.register');
-});
-
 Route::get('/input', function () {
     return view('pages.input');
 });
@@ -28,6 +24,10 @@ Route::get('/input', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
+    return view('home');
+})->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/students', function () {
     return view('pages.tamatan');

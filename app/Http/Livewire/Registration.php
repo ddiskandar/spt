@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Profile;
 use App\Models\User;
 use App\Models\Student;
+use App\Models\Trace;
 use Livewire\Component;
 
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +37,8 @@ class Registration extends Component
 
     public function validate_student()
     {
+        $this->validate();
+        
         $this->student = Student::query()
             ->where('name', $this->name)
             ->where('year_id', $this->year)
@@ -43,12 +47,12 @@ class Registration extends Component
         
         if (isset($this->student->user_id)) 
         {
-            $this->errorMessage = 'Akun sudah terdaftar.';
+            $this->errorMessage = 'registered';
         }
 
         if (empty($this->student))
         {
-            $this->errorMessage = 'Data tidak sesuai.';
+            $this->errorMessage = 'invalid';
         }
     }
 
@@ -68,6 +72,14 @@ class Registration extends Component
 
             $this->student->update([
                 'user_id' => $user->id,
+            ]);
+
+            Profile::create([
+                'student_id' => $this->student->id
+            ]);
+
+            Trace::create([
+                'student_id' => $this->student->id
             ]);
 
             Auth::login($user);
