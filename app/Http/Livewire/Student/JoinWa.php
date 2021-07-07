@@ -3,50 +3,46 @@
 namespace App\Http\Livewire\Student;
 
 use Livewire\Component;
-use App\Models\Student;
 use App\Models\Profile;
+use App\Models\Year;
 
 class JoinWa extends Component
 {
     public $profile;
+    public $link_group;
 
-    public $student;
-
-    public $join_wa;
-    public $phone;
+    public $state = [];
 
     protected $rules = [
-        'phone' => 'required|string|max:13',
-        'join_wa' => 'required',
+        'state.phone' => 'required|string|max:13',
+        'state.join_wa' => 'required',
     ];
 
     protected $validationAttributes = [
-        'phone' => 'Nomor HP/WA',
-        'join_wa' => 'Pilihan Gabung Grup',
+        'state.phone' => 'Nomor HP/WA',
+        'state.join_wa' => 'Status gabung grup',
     ];
 
-    public function mount(Student $student)
+    public function mount()
     {
-        $profile = Profile::whereStudentId($student->id)->firstOrNew();
+        $this->link_group = Year::query()
+            ->find( auth()->user()->student->year_id );
 
-        $this->profile = $profile;
+        $this->profile = Profile::query()
+            ->whereStudentId( auth()->user()->student->id )
+            ->first();
 
-        $this->join_wa = $profile->join_wa;
-        $this->phone = $student->phone;
-        $this->student = $student;
+        $this->state = $this->profile->toArray();
+
     }
 
     public function update()
     {
         $this->validate();
 
-        $this->profile->updateOrCreate([
-            ['student_id' => $this->student->id],
-            ['join_wa' => $this->join_wa ? 1 : 0],
-        ]);
-
-        $this->student->update([
-            'phone' => $this->phone,
+        $this->profile->update([
+            'phone' => $this->state['phone'],
+            'join_wa' => $this->state['join_wa'],
         ]);
 
         $this->emit('saved');

@@ -38,7 +38,7 @@
 
         @if ( $state['activity_id'] !== '1')
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="state.linear" :value="__('Apakah aktivitas sekarang state.linear dengan jurusan di SMK?')" />
+            <x-jet-label for="state.linear" :value="__('Apakah aktivitas sekarang linear dengan jurusan di SMK?')" />
             <div class="flex items-center mt-2">
                 <input wire:model="state.linear" id="state.linear_true" type="radio" value='1' />
                 <x-jet-label class="ml-1" for="state.linear_true" :value="__('Ya')" />
@@ -92,11 +92,6 @@
         @endif
 
         @if ($state['pernah_bekerja'] == '1' || $state['activity_id'] == '2')
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="state.bekerja_nama" :value="__('Nama Perusahaan tempat bekerja')" />
-            <x-jet-input id="state.bekerja_nama" wire:model.defer="state.bekerja_nama" class="block w-full mt-1" type="text" name="state.bekerja_nama" :value="old('state.bekerja_nama')" />
-            <x-jet-input-error for="state.bekerja_nama" class="mt-2" />
-        </div>
 
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="state.bekerja_sebelum_lulus" :value="__('Apakah anda sudah mulai bekerja sebelum lulus dari SMK?')" />
@@ -111,6 +106,12 @@
         </div>
 
         <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="state.bekerja_masa_tunggu" :value="__('Masa tunggu sampai mendapatkan pekerjaan pertama anda (bulan)')" />
+            <x-jet-input id="state.bekerja_masa_tunggu" wire:model.defer="state.bekerja_masa_tunggu" class="block w-full mt-1" type="text" name="state.bekerja_masa_tunggu" :value="old('state.bekerja_masa_tunggu')" />
+            <x-jet-input-error for="state.bekerja_masa_tunggu" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="state.bekerja_melalui_bkk" :value="__('Apakah anda bekerja melalui BKK SMK?')" />
             <div class="flex items-center mt-2">
                 <input wire:model="state.bekerja_melalui_bkk" id="state.bekerja_melalui_bkk_true" type="radio" value='1' />
@@ -120,6 +121,42 @@
                 <input wire:model="state.bekerja_melalui_bkk" id="state.bekerja_melalui_bkk_false" type="radio" value='0' />
                 <x-jet-label class="ml-1" for="state.bekerja_melalui_bkk_false" :value="__('Tidak')" />
             </div>
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="state.dudika_id" value="{{ __('DUDIKA') }}" />
+            <select wire:model.defer="state.dudika_id" id="state.dudika_id" name="state.dudika_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400">
+                <option value='' selected>Pilih salah satu</option>
+                @foreach(\App\Models\Dudika::all() as $dudika )
+                <option value="{{ $dudika->id }}">{{ $dudika->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="state.bekerja_nama" :value="__('Nama Perusahaan tempat bekerja')" />
+            <x-jet-input id="state.bekerja_nama" wire:model.defer="state.bekerja_nama" class="block w-full mt-1" type="text" name="state.bekerja_nama" :value="old('state.bekerja_nama')" />
+            <x-jet-input-error for="state.bekerja_nama" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="state.profession_id" value="{{ __('Bidang pekerjaan') }}" />
+            <select wire:model.defer="state.profession_id" id="state.profession_id" name="state.profession_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400">
+                <option value='' selected>Pilih salah satu</option>
+                @foreach(\App\Models\Profession::all() as $profession )
+                <option value="{{ $profession->id }}">{{ $profession->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="state.income_id" value="{{ __('Pendapatan per bulan') }}" />
+            <select wire:model.defer="state.income_id" id="state.income_id" name="state.income_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400">
+                <option value='' selected>Pilih salah satu</option>
+                @foreach(\App\Models\Income::all() as $income )
+                <option value="{{ $income->id }}">{{ $income->name }}</option>
+                @endforeach
+            </select>
         </div>
 
         <div class="col-span-6 sm:col-span-4">
