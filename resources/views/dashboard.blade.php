@@ -9,10 +9,9 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow sm:rounded-lg">
 
-                <div class="p-6 bg-white">
-                    <div class="md:flex md:gap-x-12">
-                        Hello there
-                    </div>
+                <div class="p-12">
+                    <h1>Jumlah Tamatan</h1>
+                    {!! $chart->container() !!}
                 </div>
             </div>
         </div>
@@ -23,4 +22,10 @@
         <span class="hidden md:px-2 md:block">-</span>
         <div>Made with love by Dd</div>
     </footer>
+
+    <x-slot name="scripts">
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        {{ $chart->script() }}
+    </x-slot>
+
 </x-app-layout>

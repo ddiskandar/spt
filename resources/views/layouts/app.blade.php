@@ -45,6 +45,8 @@
     @stack('modals')
 
     @livewireScripts
+    
+    {{ $scripts->isEmpty() ? ' ' : $scripts }}
 </body>
 
 </html>

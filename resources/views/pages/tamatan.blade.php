@@ -19,4 +19,7 @@
             <!-- <x-jet-section-border /> -->
         </div>
     </div>
+
+    <x-slot name="scripts">
+    </x-slot>
 </x-app-layout>
