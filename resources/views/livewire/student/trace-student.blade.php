@@ -36,7 +36,7 @@
 
         <div class="w-full col-span-6 border-t border-gray-200"></div>
 
-        @if ( $state['activity_id'] !== '1')
+        @if ( $state['activity_id'] != '1' || $state['pernah_bekerja'] == '1')
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="state.linear" :value="__('Apakah aktivitas sekarang linear dengan jurusan di SMK?')" />
             <div class="flex items-center mt-2">
@@ -77,7 +77,7 @@
         </div>
         @endif
 
-        @if ( $state['activity_id'] !== '2')
+        @if ( $state['activity_id'] != '2')
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="state.pernah_bekerja" :value="__('Apakah anda pernah bekerja?')" />
             <div class="flex items-center mt-2">

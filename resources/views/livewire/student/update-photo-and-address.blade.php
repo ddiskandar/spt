@@ -1,15 +1,14 @@
-<x-jet-form-section submit="updateProfileInformation">
+<x-jet-form-section submit="update">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        {{ __('Photo dan alamat') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        {{ __('Photo di tempat aktivitas sekarang dan alamat tempat tinggal') }}
     </x-slot>
 
     <x-slot name="form">
-        <!-- Profile Photo -->
-        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+
         <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
             <!-- Profile Photo File Input -->
             <input type="file" class="hidden" wire:model="photo" x-ref="photo" x-on:change="
@@ -25,12 +24,16 @@
 
             <!-- Current Profile Photo -->
             <div class="mt-2" x-show="! photoPreview">
-                <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="object-cover w-48 rounded-lg h-60">
+                @if ($profile->photo)
+                <img src="/storage/{{ $profile->photo }}" alt="preview" class="object-cover w-64 h-48 rounded-lg ">
+                @else
+                <img src="/images/default-image.jpg" alt="preview" class="object-cover w-64 h-48 rounded-lg ">
+                @endif
             </div>
 
             <!-- New Profile Photo Preview -->
             <div class="mt-2" x-show="photoPreview">
-                <span class="block w-48 rounded-lg h-60" x-bind:style="'background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + photoPreview + '\');'">
+                <span class="block h-48 rounded-lg w-60" x-bind:style="'background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + photoPreview + '\');'">
                 </span>
             </div>
 
@@ -38,15 +41,20 @@
                 {{ __('Select A New Photo') }}
             </x-jet-secondary-button>
 
-            @if ($this->user->profile_photo_path)
-            <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
+            @isset ($profile->photo)
+            <x-jet-secondary-button type="button" class="mt-4" wire:click="deletePhoto">
                 {{ __('Remove Photo') }}
             </x-jet-secondary-button>
-            @endif
+            @endisset
 
             <x-jet-input-error for="photo" class="mt-2" />
         </div>
-        @endif
+
+        <div class="col-span-6">
+            <x-jet-label for="address" :value="__('Alamat tempat tinggal sekarang')" />
+            <x-textarea id="address" wire:model.defer="address" class="block w-full mt-1" type="text" name="address" rows="2" />
+            <x-jet-input-error for="address" class="mt-2" />
+        </div>
 
     </x-slot>
 
@@ -55,7 +63,11 @@
             {{ __('Berhasil disimpan.') }}
         </x-jet-action-message>
 
-        <x-jet-button wire:loading.attr="disabled" wire:target="photo">
+        <x-dirty-message class="mr-3" target="photo, address">
+            {{ __('Belum disimpan!') }}
+        </x-dirty-message>
+
+        <x-jet-button>
             {{ __('Simpan') }}
         </x-jet-button>
     </x-slot>

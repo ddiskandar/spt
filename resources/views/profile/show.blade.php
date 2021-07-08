@@ -24,6 +24,12 @@
             <x-jet-section-border />
 
             <div class="mt-10 sm:mt-0">
+                @livewire('student.update-photo-and-address')
+            </div>
+
+            <x-jet-section-border />
+
+            <div class="mt-10 sm:mt-0">
                 @livewire('student.profile-student')
             </div>
 
@@ -37,6 +43,12 @@
 
             <div class="mt-10 sm:mt-0">
                 @livewire('student.join-wa')
+            </div>
+
+            <x-jet-section-border />
+
+            <div class="mt-10 sm:mt-0">
+                @livewire('student.update-email')
             </div>
 
             <x-jet-section-border />
@@ -62,7 +74,7 @@
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-            
+
             <x-jet-section-border />
 
             <div class="mt-10 sm:mt-0">
