@@ -73,30 +73,15 @@
                                     {{ auth()->user()->student->profile->phone ?? '-' }}
                                 </dd>
                             </div>
+
                             <div class="sm:col-span-1">
-                                <dt class="text-sm font-medium text-gray-500">
-                                    Alamat sekarang
-                                </dt>
-                                <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->profile->address ?? '-' }}
-                                </dd>
-                            </div>
-                            <div class="sm:col-span-2">
-                                <dt class="text-sm font-medium text-gray-500">
-                                    Testimoni
-                                </dt>
-                                <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->profile->testimoni ?? '-' }}
-                                </dd>
-                            </div>
-                            <div class="sm:col-span-2">
                                 <dt class="text-sm font-medium text-gray-500">
                                     Akun Sosial Media
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
 
-                                    <div class="flex flex-wrap items-center space-x-1">
-                                        <div>
+                                    <div class="flex flex-wrap items-center">
+                                        <div class="mt-1 mr-2">
                                             @isset (auth()->user()->student->profile->facebook)
                                             <a target="_blank" href="https://facebook.com/{{auth()->user()->student->profile->facebook}}">
                                                 <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
@@ -112,7 +97,7 @@
                                             @endisset
                                         </div>
 
-                                        <div>
+                                        <div class="mt-1 mr-2">
                                             @isset (auth()->user()->student->profile->instagram)
                                             <a target="_blank" href="https://instagram.com/{{auth()->user()->student->profile->instagram}}">
                                                 <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
@@ -127,7 +112,7 @@
                                             </span>
                                             @endisset
                                         </div>
-                                        <div>
+                                        <div class="mt-1 mr-2">
 
                                             @isset (auth()->user()->student->profile->twitter)
                                             <a target="_blank" href="https://twitter.com/{{auth()->user()->student->profile->twitter}}">
@@ -144,7 +129,7 @@
                                             @endisset
                                         </div>
 
-                                        <div>
+                                        <div class="mt-1 mr-2">
                                             @isset (auth()->user()->student->profile->youtube)
                                             <a target="_blank" href="https://youtube.com/{{auth()->user()->student->profile->youtube}}">
                                                 <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
@@ -160,7 +145,7 @@
                                             @endisset
                                         </div>
 
-                                        <div>
+                                        <div class="mt-1 mr-2">
                                             @isset (auth()->user()->student->profile->linkedin)
                                             <a target="_blank" href="https://linkedin.com/{{auth()->user()->student->profile->linkedin}}">
                                                 <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
@@ -179,6 +164,7 @@
 
                                 </dd>
                             </div>
+
                             <div class="sm:col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">
                                     Aktivitas sekarang
@@ -187,6 +173,34 @@
                                     {{ auth()->user()->student->trace->activity->name ?? '-' }}
                                 </dd>
                             </div>
+
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Alamat sekarang
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    {{ auth()->user()->student->profile->address ?? '-' }}
+                                </dd>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Testimoni
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    {{ auth()->user()->student->profile->testimoni ?? '-' }}
+                                </dd>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Foto terbaru
+                                </dt>
+                                <dd class="mt-1 ">
+                                    <img src="/storage/{{ auth()->user()->student->profile->photo }}" alt="" class="rounded-lg w-72">
+                                </dd>
+                            </div>
+
                         </dl>
                     </div>
                 </div>
