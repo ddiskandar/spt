@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Year;
 use App\Models\Trace;
 use App\Models\Major;
+use App\Models\Profile;
 
 class Student extends Model
 {
@@ -34,5 +35,10 @@ class Student extends Model
     public function trace()
     {
         return $this->hasOne(Trace::class);
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
     }
 }
