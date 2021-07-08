@@ -94,7 +94,89 @@
                                     Akun Sosial Media
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
-                                    facebook / instagram / twitter / youtube / linkedin
+
+                                    <div class="flex flex-wrap items-center space-x-1">
+                                        <div>
+                                            @isset (auth()->user()->student->profile->facebook)
+                                            <a target="_blank" href="https://facebook.com/{{auth()->user()->student->profile->facebook}}">
+                                                <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                                                    <span class="w-2 h-2 mr-2 bg-green-600 rounded-full"></span>
+                                                    <span>facebook</span>
+                                                </span>
+                                            </a>
+                                            @else
+                                            <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                                                <span class="w-2 h-2 mr-2 bg-red-600 rounded-full"></span>
+                                                <span>facebook</span>
+                                            </span>
+                                            @endisset
+                                        </div>
+
+                                        <div>
+                                            @isset (auth()->user()->student->profile->instagram)
+                                            <a target="_blank" href="https://instagram.com/{{auth()->user()->student->profile->instagram}}">
+                                                <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                                                    <span class="w-2 h-2 mr-2 bg-green-600 rounded-full"></span>
+                                                    <span>instagram</span>
+                                                </span>
+                                            </a>
+                                            @else
+                                            <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                                                <span class="w-2 h-2 mr-2 bg-red-600 rounded-full"></span>
+                                                <span>instagram</span>
+                                            </span>
+                                            @endisset
+                                        </div>
+                                        <div>
+
+                                            @isset (auth()->user()->student->profile->twitter)
+                                            <a target="_blank" href="https://twitter.com/{{auth()->user()->student->profile->twitter}}">
+                                                <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                                                    <span class="w-2 h-2 mr-2 bg-green-600 rounded-full"></span>
+                                                    <span>twitter</span>
+                                                </span>
+                                            </a>
+                                            @else
+                                            <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                                                <span class="w-2 h-2 mr-2 bg-red-600 rounded-full"></span>
+                                                <span>twitter</span>
+                                            </span>
+                                            @endisset
+                                        </div>
+
+                                        <div>
+                                            @isset (auth()->user()->student->profile->youtube)
+                                            <a target="_blank" href="https://youtube.com/{{auth()->user()->student->profile->youtube}}">
+                                                <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                                                    <span class="w-2 h-2 mr-2 bg-green-600 rounded-full"></span>
+                                                    <span>youtube</span>
+                                                </span>
+                                            </a>
+                                            @else
+                                            <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                                                <span class="w-2 h-2 mr-2 bg-red-600 rounded-full"></span>
+                                                <span>youtube</span>
+                                            </span>
+                                            @endisset
+                                        </div>
+
+                                        <div>
+                                            @isset (auth()->user()->student->profile->linkedin)
+                                            <a target="_blank" href="https://linkedin.com/{{auth()->user()->student->profile->linkedin}}">
+                                                <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                                                    <span class="w-2 h-2 mr-2 bg-green-600 rounded-full"></span>
+                                                    <span>linkedin</span>
+                                                </span>
+                                            </a>
+                                            @else
+                                            <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-red-800 bg-red-100 rounded-full">
+                                                <span class="w-2 h-2 mr-2 bg-red-600 rounded-full"></span>
+                                                <span>linkedin</span>
+                                            </span>
+                                            @endisset
+                                        </div>
+                                    </div>
+
                                 </dd>
                             </div>
                             <div class="sm:col-span-1">
