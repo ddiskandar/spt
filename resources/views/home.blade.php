@@ -70,7 +70,7 @@
                                     Nomor WA
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->profile->phone ?? '-' }}
+                                    {{ auth()->user()->student->profile->phone ?? 'Belum diisi' }}
                                 </dd>
                             </div>
 
@@ -170,7 +170,7 @@
                                     Testimoni
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->profile->testimoni ?? '-' }}
+                                    {{ auth()->user()->student->profile->testimoni ?? 'Belum diisi' }}
                                 </dd>
                             </div>
 
@@ -178,11 +178,11 @@
                                 <dt class="text-sm font-medium text-gray-500">
                                     Foto terbaru
                                 </dt>
-                                <dd class="mt-1 ">
+                                <dd class="mt-1 text-sm text-gray-900">
                                     @isset(auth()->user()->student->profile->photo)
                                     <img src="/storage/{{ auth()->user()->student->profile->photo }}" alt="" class="rounded-lg w-72">
                                     @else
-                                    -
+                                    Belum diisi
                                     @endisset
                                 </dd>
                             </div>
@@ -192,7 +192,7 @@
                                     Alamat sekarang
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->profile->address ?? '-' }}
+                                    {{ auth()->user()->student->profile->address ?? 'Belum diisi' }}
                                 </dd>
                             </div>
 
@@ -201,10 +201,15 @@
                                     Aktivitas sekarang
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
+                                    @isset (auth()->user()->student->trace->activity_id)
                                     <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
                                         <span class="w-2 h-2 mr-2 bg-green-600 rounded-full"></span>
-                                        <span>{{ auth()->user()->student->trace->activity->name ?? '-' }}</span>
+                                        <span>{{ auth()->user()->student->trace->activity->name ?? 'Belum diisi' }}</span>
                                     </span>
+
+                                    @else
+                                    Belum diisi
+                                    @endisset
                                 </dd>
                             </div>
 
@@ -215,7 +220,7 @@
                                     Nama perusahaan tempat bekerja
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->trace->bekerja_nama ?? '-' }}
+                                    {{ auth()->user()->student->trace->bekerja_nama ?? 'Belum diisi' }}
                                 </dd>
                             </div>
 
@@ -225,7 +230,7 @@
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
                                     <!-- TODO -->
-                                    {{ auth()->user()->student->trace->income_id ?? '-' }}
+                                    {{ auth()->user()->student->trace->income_id ?? 'Belum diisi' }}
                                 </dd>
                             </div>
 
@@ -238,7 +243,7 @@
                                     Nama Kampus/Perguruan Tinggi
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->trace->melanjutkan_kampus ?? '-' }}
+                                    {{ auth()->user()->student->trace->melanjutkan_kampus ?? 'Belum diisi' }}
                                 </dd>
                             </div>
 
@@ -247,7 +252,7 @@
                                     Program Studi
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->trace->melanjutkan_prodi ?? '-' }}
+                                    {{ auth()->user()->student->trace->melanjutkan_prodi ?? 'Belum diisi' }}
                                 </dd>
                             </div>
 
@@ -260,7 +265,7 @@
                                     Nama / Brand Usaha
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->trace->business_name ?? '-' }}
+                                    {{ auth()->user()->student->trace->business_name ?? 'Belum diisi' }}
                                 </dd>
                             </div>
 
@@ -269,7 +274,7 @@
                                     Bidang usaha
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->trace->business_id ?? '-' }}
+                                    {{ auth()->user()->student->trace->business_id ?? 'Belum diisi' }}
                                 </dd>
                             </div>
 
