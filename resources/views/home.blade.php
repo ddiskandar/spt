@@ -179,7 +179,11 @@
                                     Foto terbaru
                                 </dt>
                                 <dd class="mt-1 ">
+                                    @isset(auth()->user()->student->profile->photo)
                                     <img src="/storage/{{ auth()->user()->student->profile->photo }}" alt="" class="rounded-lg w-72">
+                                    @else
+                                    -
+                                    @endisset
                                 </dd>
                             </div>
 
