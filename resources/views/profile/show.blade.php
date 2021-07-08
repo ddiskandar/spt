@@ -1,8 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Profile') }}
-        </h2>
+        <div class="flex flex-col items-start justify-between md:flex-row md:items-center">
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">
+                {{ auth()->user()->student->name }}
+            </h2>
+            <div class="mt-4 md:mt-0">
+                <a href="{{ url()->previous() }}">
+                    <x-jet-secondary-button>
+                        Kembali
+                    </x-jet-secondary-button>
+                </a>
+            </div>
+        </div>
     </x-slot>
 
     <div>

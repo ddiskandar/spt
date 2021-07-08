@@ -35,7 +35,7 @@
                             </div>
                             <div class="sm:col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">
-                                    Tahun Lulus
+                                    Angkatan Tahun Lulus
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
                                     {{ auth()->user()->student->angkatan->name }}
@@ -165,24 +165,6 @@
                                 </dd>
                             </div>
 
-                            <div class="sm:col-span-1">
-                                <dt class="text-sm font-medium text-gray-500">
-                                    Aktivitas sekarang
-                                </dt>
-                                <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->trace->activity->name ?? '-' }}
-                                </dd>
-                            </div>
-
-                            <div class="sm:col-span-1">
-                                <dt class="text-sm font-medium text-gray-500">
-                                    Alamat sekarang
-                                </dt>
-                                <dd class="mt-1 text-sm text-gray-900">
-                                    {{ auth()->user()->student->profile->address ?? '-' }}
-                                </dd>
-                            </div>
-
                             <div class="sm:col-span-2">
                                 <dt class="text-sm font-medium text-gray-500">
                                     Testimoni
@@ -201,6 +183,94 @@
                                 </dd>
                             </div>
 
+                            <div class="sm:col-span-2">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Alamat sekarang
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    {{ auth()->user()->student->profile->address ?? '-' }}
+                                </dd>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Aktivitas sekarang
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                                        <span class="w-2 h-2 mr-2 bg-green-600 rounded-full"></span>
+                                        <span>{{ auth()->user()->student->trace->activity->name ?? '-' }}</span>
+                                    </span>
+                                </dd>
+                            </div>
+
+                            @if (auth()->user()->student->trace->activity_id == '2')
+
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Nama perusahaan tempat bekerja
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    {{ auth()->user()->student->trace->bekerja_nama ?? '-' }}
+                                </dd>
+                            </div>
+
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Bidang Pekerjaan
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    <!-- TODO -->
+                                    {{ auth()->user()->student->trace->income_id ?? '-' }}
+                                </dd>
+                            </div>
+
+                            @endif
+
+                            @if (auth()->user()->student->trace->activity_id == '3')
+
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Nama Kampus/Perguruan Tinggi
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    {{ auth()->user()->student->trace->melanjutkan_kampus ?? '-' }}
+                                </dd>
+                            </div>
+
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Program Studi
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    {{ auth()->user()->student->trace->melanjutkan_prodi ?? '-' }}
+                                </dd>
+                            </div>
+
+                            @endif
+
+                            @if (auth()->user()->student->trace->activity_id == '4')
+
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Nama / Brand Usaha
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    {{ auth()->user()->student->trace->business_name ?? '-' }}
+                                </dd>
+                            </div>
+
+                            <div class="sm:col-span-1">
+                                <dt class="text-sm font-medium text-gray-500">
+                                    Bidang usaha
+                                </dt>
+                                <dd class="mt-1 text-sm text-gray-900">
+                                    {{ auth()->user()->student->trace->business_id ?? '-' }}
+                                </dd>
+                            </div>
+
+                            @endif
+
                         </dl>
                     </div>
                 </div>
@@ -208,7 +278,7 @@
         </div>
     </div>
 
-    <footer class="flex flex-col justify-center pt-24 pb-6 text-sm text-center text-gray-400 md:flex-row">
+    <footer class="flex flex-col justify-center pt-12 pb-6 text-sm text-center text-gray-400 md:flex-row">
         <div class>Sistem Penelusuran Tamatan SMK Plus Al-Farhan </div>
         <span class="hidden md:px-2 md:block">-</span>
         <div>Made with love by Dd</div>
