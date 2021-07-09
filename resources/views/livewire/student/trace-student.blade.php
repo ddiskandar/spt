@@ -58,7 +58,7 @@
 
         @if ($state['activity_id'] == '3')
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="state.melanjutkan_kampus" :value="__('Nama Kampus')" />
+            <x-jet-label for="state.melanjutkan_kampus" :value="__('Nama Perguruan Tinggi')" />
             <x-jet-input id="state.melanjutkan_kampus" wire:model.defer="state.melanjutkan_kampus" class="block w-full mt-1" type="text" name="state.melanjutkan_kampus" :value="old('state.melanjutkan_kampus')" />
             <x-jet-input-error for="state.melanjutkan_kampus" class="mt-2" />
         </div>
@@ -124,39 +124,65 @@
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="state.dudika_id" value="{{ __('DUDIKA') }}" />
-            <select wire:model.defer="state.dudika_id" id="state.dudika_id" name="state.dudika_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400">
-                <option value='' selected>Pilih salah satu</option>
-                @foreach(\App\Models\Dudika::all() as $dudika )
-                <option value="{{ $dudika->id }}">{{ $dudika->name }}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="state.bekerja_nama" :value="__('Nama Perusahaan')" />
             <x-jet-input id="state.bekerja_nama" wire:model.defer="state.bekerja_nama" class="block w-full mt-1" type="text" name="state.bekerja_nama" :value="old('state.bekerja_nama')" />
             <x-jet-input-error for="state.bekerja_nama" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="state.dudika_id" value="{{ __('DUDIKA') }}" />
+            <select wire:model.defer="state.dudika_id" id="state.dudika_id" name="state.dudika_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400">
+                <option selected>Pilih salah satu</option>
+                @foreach(\App\Models\Dudika::all() as $dudika )
+                <option value="{{ $dudika->id }}">{{ $dudika->name }}</option>
+                @endforeach
+            </select>
+            <x-jet-input-error for="state.dudika_id" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="state.business_id" value="{{ __('Bidang Usaha') }}" />
+            <select wire:model.defer="state.business_id" id="state.business_id" name="state.business_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400">
+                <option selected>Pilih salah satu</option>
+                @foreach(\App\Models\Business::all() as $business )
+                <option value="{{ $business->id }}">{{ $business->name }}</option>
+                @endforeach
+            </select>
+            <x-jet-input-error for="state.business_id" class="mt-2" />
+
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="state.profession_id" value="{{ __('Pekerjaan') }}" />
             <select wire:model.defer="state.profession_id" id="state.profession_id" name="state.profession_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400">
-                <option value='' selected>Pilih salah satu</option>
+                <option selected>Pilih salah satu</option>
                 @foreach(\App\Models\Profession::all() as $profession )
                 <option value="{{ $profession->id }}">{{ $profession->name }}</option>
                 @endforeach
             </select>
+            <x-jet-input-error for="state.profession_id" class="mt-2" />
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="state.bond_id" value="{{ __('Ikatan kerja') }}" />
+            <select wire:model.defer="state.bond_id" id="state.bond_id" name="state.bond_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400">
+                <option selected>Pilih salah satu</option>
+                @foreach(\App\Models\Bond::all() as $bond )
+                <option value="{{ $bond->id }}">{{ $bond->name }}</option>
+                @endforeach
+            </select>
+            <x-jet-input-error for="state.bond_id" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="state.income_id" value="{{ __('Penghasilan') }}" />
             <select wire:model.defer="state.income_id" id="state.income_id" name="state.income_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400">
-                <option value='' selected>Pilih salah satu</option>
+                <option selected>Pilih salah satu</option>
                 @foreach(\App\Models\Income::all() as $income )
                 <option value="{{ $income->id }}">{{ $income->name }}</option>
                 @endforeach
             </select>
+            <x-jet-input-error for="state.income_id" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">

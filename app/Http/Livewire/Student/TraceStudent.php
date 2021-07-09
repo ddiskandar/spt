@@ -13,22 +13,38 @@ class TraceStudent extends Component
 
     protected $rules = [
         'state.activity_id' => 'required',
-        'state.linear' => 'nullable',
-        'state.pernah_bekerja' => 'nullable',
+        'state.linear' => 'required_if:state.activity_id,!=,1',
+        'state.pernah_bekerja' => 'required',
         'state.tanggal_masuk' => 'nullable',
-        'state.melanjutkan_kampus' => 'nullable',
-        'state.melanjutkan_prodi' => 'nullable',
+        'state.melanjutkan_kampus' => 'required_if:state.activity_id,3',
+        'state.melanjutkan_prodi' => 'required_if:state.activity_id,3',
         'state.dudika_id' => 'nullable',
-        'state.bekerja_nama' => 'nullable',
-        'state.bekerja_sebelum_lulus' => 'nullable',
-        'state.bekerja_melalui_bkk' => 'nullable',
-        'state.bekerja_masa_tunggu' => 'nullable',
-        'state.bekerja_gaji_standar_umr' => 'nullable',
-        'state.income_id' => 'nullable',
-        'state.profession_id' => 'nullable',
-        'state.bond_id' => 'nullable',
-        'state.business_id' => 'nullable',
-        'state.business_name' => 'nullable',
+        'state.bekerja_nama' => 'required_if:state.activity_id,2',
+        'state.bekerja_sebelum_lulus' => 'required_if:state.activity_id,2',
+        'state.bekerja_melalui_bkk' => 'required_if:state.activity_id,2',
+        'state.bekerja_masa_tunggu' => 'required_if:state.activity_id,2',
+        'state.bekerja_gaji_standar_umr' => 'required_if:state.activity_id,2',
+        'state.income_id' => 'required_if:state.activity_id,2',
+        'state.profession_id' => 'required_if:state.activity_id,2',
+        'state.bond_id' => 'required_if:state.activity_id,2',
+        'state.business_id' => 'required_if:state.activity_id,3',
+        'state.business_name' => 'required_if:state.activity_id,4',
+    ];
+
+    protected $messages = [
+        'state.melanjutkan_kampus.required_if' => 'Nama Perguruan tinggi harus di isi',
+        'state.melanjutkan_prodi.required_if' => 'Program studi harus di isi',
+
+        'state.bekerja_nama.required_if' => 'Nama perusahaan harus diisi',
+        'state.bekerja_sebelum_lulus.required_if' => 'harus diisi',
+        'state.bekerja_melalui_bkk.required_if' => 'harus diisi',
+        'state.bekerja_masa_tunggu.required_if' => 'harus diisi',
+        'state.bekerja_gaji_standar_umr.required_if' => 'harus diisi',
+        'state.income_id.required_if' => 'Penghasilan harus diisi',
+        'state.profession_id.required_if' => 'Pekerjaan harus diisi',
+        'state.bond_id.required_if' => 'harus diisi',
+        'state.business_id.required_if' => 'harus diisi',
+        'state.business_name.required_if' => 'Nama perusahaan harus diisi',
     ];
 
     protected $validationAttributes = [

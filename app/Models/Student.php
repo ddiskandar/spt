@@ -10,6 +10,7 @@ use App\Models\Year;
 use App\Models\Trace;
 use App\Models\Major;
 use App\Models\Profile;
+use App\Models\Profession;
 
 class Student extends Model
 {

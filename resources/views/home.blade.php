@@ -226,11 +226,11 @@
 
                             <div class="sm:col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">
-                                    Bidang Pekerjaan
+                                    Pekerjaan
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
                                     <!-- TODO -->
-                                    {{ auth()->user()->student->trace->income_id ?? 'Belum diisi' }}
+                                    {{ auth()->user()->student->trace->pekerjaan->name ?? 'Belum diisi' }}
                                 </dd>
                             </div>
 

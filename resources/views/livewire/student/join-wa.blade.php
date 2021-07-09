@@ -11,7 +11,8 @@
 
         <!-- NO HP / Whatsapp -->
         <div class="col-span-6 sm:col-span-3">
-            <x-jet-label for="state.phone" :value="__('Nomor HP, diutamakan nomor yang terhubung dengan WhatsApp')" />
+            <x-jet-label for="state.phone" :value="__('Nomor HP')" />
+            <p class="text-sm">Diutamakan nomor yang terhubung dengan WhatsApp</p>
             <x-jet-input maxlength="13" id="state.phone" wire:model.defer="state.phone" class="block w-full mt-1" type="text" name="state.phone" :value="old('state.phone')" />
             <x-jet-input-error for="state.phone" class="mt-2" />
         </div>
