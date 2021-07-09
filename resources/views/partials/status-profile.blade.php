@@ -28,7 +28,7 @@
 
                                     @endisset
 
-                                    <span class="ml-4 text-sm font-medium text-indigo-600">Aktivitas</span>
+                                    <span class="ml-4 text-sm font-medium text-indigo-600">Jejak Kelulusan</span>
                                 </span>
                             </a>
 

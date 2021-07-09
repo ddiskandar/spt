@@ -292,4 +292,8 @@
         <span class="hidden md:px-2 md:block">-</span>
         <div>Made with love by Dd</div>
     </footer>
+
+    <x-slot name="scripts">
+    </x-slot>
+
 </x-app-layout>
