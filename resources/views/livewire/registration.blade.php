@@ -114,7 +114,7 @@
         <x-jet-validation-errors class="py-6" />
 
         @empty ($student)
-        <div class="mt-6">
+        <div class="py-6">
             <a href="#" wire:click.prevent="validate_student" class="text-sm font-semibold text-indigo-500 uppercase cursor-pointer">Klik untuk validasi data -></a>
         </div>
         @endempty
