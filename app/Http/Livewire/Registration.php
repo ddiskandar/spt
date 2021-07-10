@@ -74,10 +74,6 @@ class Registration extends Component
 
         $this->validate_student();
 
-        if ( empty($this->student)) {
-            return ;
-        }
-
         DB::transaction( function () {
             
             $user = User::create([
