@@ -1,18 +1,17 @@
 <x-jet-form-section submit="update">
     <x-slot name="title">
-        {{ __('Nomor Whatsapp dan Gabung Group') }}
+        {{ __('Nomor Hp dan Gabung Group') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Segera bergabung dengan group untuk kemudahan komunikasi') }}
+        {{ __('Diutamakan nomor yang terhubung dengan WhatsApp') }}
     </x-slot>
 
     <x-slot name="form">
 
         <!-- NO HP / Whatsapp -->
         <div class="col-span-6 sm:col-span-3">
-            <x-jet-label for="state.phone" :value="__('Nomor HP')" />
-            <p class="text-sm">Diutamakan nomor yang terhubung dengan WhatsApp</p>
+            <x-jet-label for="state.phone" :value="__('Nomor WhatsApp')" />
             <x-jet-input maxlength="13" id="state.phone" wire:model.defer="state.phone" class="block w-full mt-1" type="text" name="state.phone" :value="old('state.phone')" />
             <x-jet-input-error for="state.phone" class="mt-2" />
         </div>

@@ -287,12 +287,6 @@
         </div>
     </div>
 
-    <footer class="flex flex-col justify-center pt-12 pb-6 text-sm text-center text-gray-400 md:flex-row">
-        <div class>Sistem Penelusuran Tamatan SMK Plus Al-Farhan </div>
-        <span class="hidden md:px-2 md:block">-</span>
-        <div>Made with love by Dd</div>
-    </footer>
-
     <x-slot name="scripts">
     </x-slot>
 

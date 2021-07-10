@@ -12,11 +12,11 @@ class AkunSosmed extends Component
     public $state = [];
 
     protected $rules = [
-        'state.facebook' => 'nullable',
-        'state.instagram' => 'nullable',
-        'state.twitter' => 'nullable',
-        'state.youtube' => 'nullable',
-        'state.linkedin' => 'nullable',
+        'state.facebook' => 'nullable|alpha_dash|max:128',
+        'state.instagram' => 'nullable|alpha_dash|max:128',
+        'state.twitter' => 'nullable|alpha_dash|max:128',
+        'state.youtube' => 'nullable|alpha_dash|max:128',
+        'state.linkedin' => 'nullable|alpha_dash|max:128',
     ];
 
     protected $validationAttributes = [

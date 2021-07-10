@@ -1,6 +1,6 @@
 <x-jet-form-section submit="update">
     <x-slot name="title">
-        {{ __('Photo dan alamat') }}
+        {{ __('Photo dan alamat tinggal') }}
     </x-slot>
 
     <x-slot name="description">
@@ -38,12 +38,12 @@
             </div>
 
             <x-jet-secondary-button class="mt-4 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                {{ __('Select A New Photo') }}
+                {{ __('Pilih Photo') }}
             </x-jet-secondary-button>
 
             @isset ($profile->photo)
             <x-jet-secondary-button type="button" class="mt-4" wire:click="deletePhoto">
-                {{ __('Remove Photo') }}
+                {{ __('Hapus Photo') }}
             </x-jet-secondary-button>
             @endisset
 

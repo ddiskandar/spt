@@ -15,7 +15,7 @@ class JoinWa extends Component
 
     protected $rules = [
         'state.phone' => 'required|string|max:13',
-        'state.join_wa' => 'required',
+        'state.join_wa' => 'required|in:0,1',
     ];
 
     protected $validationAttributes = [

@@ -16,10 +16,10 @@ class TraceStudent extends Component
         'state.linear' => 'required_if:state.activity_id,!=,1',
         'state.pernah_bekerja' => 'required',
         'state.tanggal_masuk' => 'nullable',
-        'state.melanjutkan_kampus' => 'required_if:state.activity_id,3',
-        'state.melanjutkan_prodi' => 'required_if:state.activity_id,3',
+        'state.melanjutkan_kampus' => 'required_if:state.activity_id,3|string|max:64',
+        'state.melanjutkan_prodi' => 'required_if:state.activity_id,3|string|max:64',
         'state.dudika_id' => 'nullable',
-        'state.bekerja_nama' => 'required_if:state.activity_id,2',
+        'state.bekerja_nama' => 'required_if:state.activity_id,2|max:64',
         'state.bekerja_sebelum_lulus' => 'required_if:state.activity_id,2',
         'state.bekerja_melalui_bkk' => 'required_if:state.activity_id,2',
         'state.bekerja_masa_tunggu' => 'required_if:state.activity_id,2',
@@ -27,8 +27,8 @@ class TraceStudent extends Component
         'state.income_id' => 'required_if:state.activity_id,2',
         'state.profession_id' => 'required_if:state.activity_id,2',
         'state.bond_id' => 'required_if:state.activity_id,2',
-        'state.business_id' => 'required_if:state.activity_id,3',
-        'state.business_name' => 'required_if:state.activity_id,4',
+        'state.business_id' => 'required_if:state.activity_id,2',
+        'state.business_name' => 'required_if:state.activity_id,4|max:64',
     ];
 
     protected $messages = [
@@ -48,11 +48,11 @@ class TraceStudent extends Component
     ];
 
     protected $validationAttributes = [
-        'state.activity_id' => 'activity_id',
+        'state.activity_id' => 'kegiatan',
         'state.linear' => 'linear',
-        'state.pernah_bekerja' => 'pernah_bekerja',
-        'state.tanggal_masuk' => 'tanggal_masuk',
-        'state.melanjutkan_kampus' => 'melanjutkan_kampus',
+        'state.pernah_bekerja' => 'pernah bekerja',
+        'state.tanggal_masuk' => 'tanggal mulai',
+        'state.melanjutkan_kampus' => 'nama perguruan tinggi',
         'state.melanjutkan_prodi' => 'melanjutkan_prodi',
         'state.dudika_id' => 'dudika_id',
         'state.bekerja_nama' => 'bekerja_nama',
@@ -63,8 +63,8 @@ class TraceStudent extends Component
         'state.income_id' => 'income_id',
         'state.profession_id' => 'profession_id',
         'state.bond_id' => 'bond_id',
-        'state.business_id' => 'business_id',
-        'state.business_name' => 'business_name',
+        'state.business_id' => 'bidang bisnis',
+        'state.business_name' => 'nama usaha',
     ];
 
     public function mount()

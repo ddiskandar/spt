@@ -31,13 +31,17 @@ class Registration extends Component
         'name' => 'required|string|max:64',
         'birth_date' => 'required|date',
         'year' => 'required',
-        'email' => 'nullable',
-        'password' => 'nullable|confirmed',
+        'email' => 'required|email',
+        'password' => 'required|min:6|confirmed',
     ];
 
     public function validate_student()
     {
-        $this->validate();
+        $this->validate([
+            'name' => 'required|string|max:64',
+            'birth_date' => 'required|date',
+            'year' => 'required',
+        ]);
         
         $this->student = Student::query()
             ->where('name', $this->name)

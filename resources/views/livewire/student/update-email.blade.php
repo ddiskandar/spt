@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update email untuk login.') }}
+        {{ __('Email aktif yang akan digunakan untuk kembali login ke portal aplikasi.') }}
     </x-slot>
 
     <x-slot name="form">

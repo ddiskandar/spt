@@ -16,7 +16,7 @@
                 <div class="">
                     <input class="hidden" wire:model="state.activity_id" id="{{ $activity->id }}" type="radio" value="{{ $activity->id }}" />
                     <label for="{{ $activity->id }}">
-                        <div class="{{ ($state['activity_id'] == $activity->id) ? 'border-indigo-600 text-indigo-600' : 'text-gray-600 border-gray-100' }} w-full px-6 py-8 border-2 rounded-lg cursor-pointer hover:border-indigo-600 flex items-center relative justify-center transition duration-500 ease-in-out">
+                        <div class="{{ ($state['activity_id'] == $activity->id) ? 'border-indigo-600 text-indigo-600' : 'text-gray-600 border-gray-100 bg-gray-50' }} w-full px-6 py-8 border-2 rounded-lg cursor-pointer hover:bg-white hover:border-indigo-600 flex items-center relative justify-center transition duration-500 ease-in-out">
                             <span class="font-semibold text-center ">{{ $activity->name }}</span>
                             @if($state['activity_id'] == $activity->id)
                             <svg class="absolute w-6 h-6 right-3 top-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -46,6 +46,8 @@
             <div class="flex items-center mt-2">
                 <input wire:model="state.linear" id="state.linear_false" type="radio" value='0' />
                 <x-jet-label class="ml-1" for="state.linear_false" :value="__('Tidak')" />
+                <x-jet-input-error for="state.linear" class="mt-2" />
+
             </div>
         </div>
 
@@ -88,6 +90,7 @@
                 <input wire:model="state.pernah_bekerja" id="state.pernah_bekerja_false" type="radio" value='0' />
                 <x-jet-label class="ml-1" for="state.pernah_bekerja_false" :value="__('Tidak')" />
             </div>
+            <x-jet-input-error for="state.pernah_bekerja" class="mt-2" />
         </div>
         @endif
 
@@ -103,6 +106,7 @@
                 <input wire:model="state.bekerja_sebelum_lulus" id="state.bekerja_sebelum_lulus_false" type="radio" value='0' />
                 <x-jet-label class="ml-1" for="state.bekerja_sebelum_lulus_false" :value="__('Tidak')" />
             </div>
+            <x-jet-input-error for="state.bekerja_sebelum_lulus" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">
@@ -121,6 +125,7 @@
                 <input wire:model="state.bekerja_melalui_bkk" id="state.bekerja_melalui_bkk_false" type="radio" value='0' />
                 <x-jet-label class="ml-1" for="state.bekerja_melalui_bkk_false" :value="__('Tidak')" />
             </div>
+            <x-jet-input-error for="state.bekerja_melalui_bkk" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">
@@ -195,6 +200,8 @@
                 <input wire:model="state.bekerja_gaji_standar_umr" id="state.bekerja_gaji_standar_umr_false" type="radio" value='0' />
                 <x-jet-label class="ml-1" for="state.bekerja_gaji_standar_umr_false" :value="__('Tidak')" />
             </div>
+            <x-jet-input-error for="state.bekerja_gaji_standar_umr" class="mt-2" />
+
         </div>
 
         @endif

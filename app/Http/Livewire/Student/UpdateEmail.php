@@ -16,6 +16,10 @@ class UpdateEmail extends Component
 
     public function update()
     {
+        $this->validate([
+            'email' => 'required|email|unique:users,email,' . auth()->user()->id,
+        ]);
+
         User::where('id', auth()->user()->id)
             ->update([
                 'email' => $this->email,
