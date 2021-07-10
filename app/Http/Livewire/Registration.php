@@ -35,6 +35,14 @@ class Registration extends Component
         'password' => 'required|min:6|confirmed',
     ];
 
+    protected $validationAttributes = [
+        'name' => 'nama',
+        'birth_date' => 'tanggal lahir',
+        'year' => 'tahun lulus',
+        'email' => 'email aktif',
+        'password' => 'password',
+    ];
+
     public function validate_student()
     {
         $this->validate([
@@ -63,6 +71,12 @@ class Registration extends Component
     public function store()
     {
         $this->validate();
+
+        $this->validate_student();
+
+        if ( empty($this->student)) {
+            return ;
+        }
 
         DB::transaction( function () {
             
