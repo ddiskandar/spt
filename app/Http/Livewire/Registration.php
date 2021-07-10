@@ -70,9 +70,9 @@ class Registration extends Component
 
     public function store()
     {
-        $this->validate();
-
         $this->validate_student();
+
+        $this->validate();
 
         DB::transaction( function () {
             
