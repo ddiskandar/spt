@@ -27,6 +27,14 @@ class AkunSosmed extends Component
         'state.linkedin' => 'linkedin',
     ];
 
+    protected $messages = [
+        'state.facebook.alpha_dash' => 'tidak boleh ada spasi',
+        'state.instagram.alpha_dash' => 'tidak boleh ada spasi',
+        'state.twitter.alpha_dash' => 'tidak boleh ada spasi',
+        'state.youtube.alpha_dash' => 'tidak boleh ada spasi',
+        'state.linkedin.alpha_dash' => 'tidak boleh ada spasi',
+    ];
+
     public function mount()
     {
         $this->profile = Profile::query()

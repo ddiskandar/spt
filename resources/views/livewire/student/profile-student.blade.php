@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Testimoni, saran, dan alamat sekarang') }}
+        {{ __('Testimoni dan harapan dan doa untuk sekolah yang lebih baik') }}
     </x-slot>
 
     <x-slot name="form">
@@ -15,7 +15,7 @@
             <x-jet-input-error for="state.testimoni" class="mt-2" />
         </div>
         <div class="col-span-6">
-            <x-jet-label for="state.saran" :value="__('Saran')" />
+            <x-jet-label for="state.saran" :value="__('Harapan dan doa untuk sekolah yang lebih baik')" />
             <x-textarea id="state.saran" wire:model.defer="state.saran" class="block w-full mt-1" type="text" name="state.saran" rows="4" />
             <x-jet-input-error for="state.saran" class="mt-2" />
         </div>

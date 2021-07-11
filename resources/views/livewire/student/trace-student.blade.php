@@ -46,9 +46,8 @@
             <div class="flex items-center mt-2">
                 <input wire:model="state.linear" id="state.linear_false" type="radio" value='0' />
                 <x-jet-label class="ml-1" for="state.linear_false" :value="__('Tidak')" />
-                <x-jet-input-error for="state.linear" class="mt-2" />
-
             </div>
+            <x-jet-input-error for="state.linear" class="mt-2" />
         </div>
 
         <div class="col-span-6 sm:col-span-4">

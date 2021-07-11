@@ -14,7 +14,7 @@ class JoinWa extends Component
     public $state = [];
 
     protected $rules = [
-        'state.phone' => 'required|string|max:13',
+        'state.phone' => 'required|string|min:10|max:13',
         'state.join_wa' => 'required|in:0,1',
     ];
 

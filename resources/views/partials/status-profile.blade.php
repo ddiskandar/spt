@@ -6,7 +6,7 @@
                     Lengkapi profil
                 </div>
                 <div class="mt-1 text-sm text-gray-500">
-                    Jalin erat silaturahmi dengan selalu memperbaharui data kamu dengan yang terbaru.
+                    Jalin erat silaturahmi dan selalu memperbaharui data kamu dengan yang terbaru.
                 </div>
             </div>
             <div class="bg-white ">

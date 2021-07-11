@@ -13,27 +13,29 @@ class TraceStudent extends Component
 
     protected $rules = [
         'state.activity_id' => 'required',
-        'state.linear' => 'required_if:state.activity_id,!=,1',
+        'state.linear' => 'nullable|required_unless:state.activity_id,1',
         'state.pernah_bekerja' => 'required',
         'state.tanggal_masuk' => 'nullable',
-        'state.melanjutkan_kampus' => 'required_if:state.activity_id,3|string|max:64',
-        'state.melanjutkan_prodi' => 'required_if:state.activity_id,3|string|max:64',
+        'state.melanjutkan_kampus' => 'nullable|required_if:state.activity_id,3|string|max:64',
+        'state.melanjutkan_prodi' => 'nullable|required_if:state.activity_id,3|string|max:64',
         'state.dudika_id' => 'nullable',
-        'state.bekerja_nama' => 'required_if:state.activity_id,2|max:64',
-        'state.bekerja_sebelum_lulus' => 'required_if:state.activity_id,2',
-        'state.bekerja_melalui_bkk' => 'required_if:state.activity_id,2',
-        'state.bekerja_masa_tunggu' => 'required_if:state.activity_id,2',
-        'state.bekerja_gaji_standar_umr' => 'required_if:state.activity_id,2',
-        'state.income_id' => 'required_if:state.activity_id,2',
-        'state.profession_id' => 'required_if:state.activity_id,2',
-        'state.bond_id' => 'required_if:state.activity_id,2',
-        'state.business_id' => 'required_if:state.activity_id,2',
-        'state.business_name' => 'required_if:state.activity_id,4|max:64',
+        'state.bekerja_nama' => 'nullable|required_if:state.activity_id,2|max:64',
+        'state.bekerja_sebelum_lulus' => 'nullable|required_if:state.activity_id,2',
+        'state.bekerja_melalui_bkk' => 'nullable|required_if:state.activity_id,2',
+        'state.bekerja_masa_tunggu' => 'nullable|required_if:state.activity_id,2',
+        'state.bekerja_gaji_standar_umr' => 'nullable|required_if:state.activity_id,2',
+        'state.income_id' => 'nullable|required_if:state.activity_id,2',
+        'state.profession_id' => 'nullable|required_if:state.activity_id,2',
+        'state.bond_id' => 'nullable|required_if:state.activity_id,2',
+        'state.business_id' => 'nullable|required_if:state.activity_id,2',
+        'state.business_name' => 'nullable|string|required_if:state.activity_id,4|max:64',
     ];
 
     protected $messages = [
         'state.melanjutkan_kampus.required_if' => 'Nama Perguruan tinggi harus di isi',
         'state.melanjutkan_prodi.required_if' => 'Program studi harus di isi',
+
+        'state.linear.required_unless' => 'harus diisi',
 
         'state.bekerja_nama.required_if' => 'Nama perusahaan harus diisi',
         'state.bekerja_sebelum_lulus.required_if' => 'harus diisi',
