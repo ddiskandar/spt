@@ -8,7 +8,7 @@
     <div class="mt-6">
 
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+            <div class="overflow-hidden bg-white shadow sm:rounded-lg">
                 <div class="grid grid-cols-1 bg-white lg:grid-cols-3">
                     <div class="p-6">
                         <div class="text-left">
@@ -59,6 +59,8 @@
             </div>
         </div>
     </div>
+
+    @livewire('rekap')
 
     <x-slot name="scripts">
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
