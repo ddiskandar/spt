@@ -13,7 +13,7 @@
     <div>
         <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="">
-                @livewire('student-table')
+                @livewire('students-table')
             </div>
 
             <!-- <x-jet-section-border /> -->

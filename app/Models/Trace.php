@@ -30,7 +30,7 @@ class Trace extends Model
 
     public function pekerjaan()
     {
-        return $this->belongsTo(Profession::class);
+        return $this->belongsTo(Profession::class, 'profession_id');
     }
 
     public function dudika()
@@ -40,11 +40,11 @@ class Trace extends Model
 
     public function business()
     {
-        return $this->belongsTo(Business::class);
+        return $this->belongsTo(Business::class, 'business_id');
     }
 
     public function penghasilan()
     {
-        return $this->belongsTo(Income::class);
+        return $this->belongsTo(Income::class, 'income_id');
     }
 }

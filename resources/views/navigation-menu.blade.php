@@ -18,7 +18,11 @@
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{ route('student.index') }}" :active="request()->routeIs('student.index')">
-                        {{ __('Referensi Tamatan') }}
+                        {{ __('Referensi') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('student.traces') }}" :active="request()->routeIs('student.traces')">
+                        {{ __('Jejak Kelulusan') }}
                     </x-jet-nav-link>
 
                     @else

@@ -3,17 +3,16 @@
 namespace App\Http\Livewire;
 
 use App\Models\Student;
-use App\Models\Year;
 use Livewire\WithPagination;
 use Livewire\Component;
 
-class StudentTable extends Component
+class StudentsTable extends Component
 {
     use WithPagination;
 
     public $search = '';
 
-    public $perPage = 4;
+    public $perPage = 9;
 
     public $filterAngkatan;
     public $filterJurusan;
@@ -25,10 +24,18 @@ class StudentTable extends Component
         'filterJurusan' => ['except' => ''],
     ];
 
+    public function updatingPerPage()
+    {
+        $this->resetPage();
+    }
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
-        return view('livewire.student-table', [
+        return view('livewire.students-table', [
             'students' => Student::query()
                 ->Where('name', 'like', '%' . $this->search. '%')
                 ->Where('year_id', 'like', '%' . $this->filterAngkatan)

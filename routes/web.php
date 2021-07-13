@@ -14,9 +14,7 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'auth.login' )->name('welcome');
 
 Route::get('/input', function () {
     return view('pages.input');
@@ -29,5 +27,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
 })->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/students', function () {
-    return view('pages.tamatan');
+    return view('pages.students');
 })->name('student.index');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/traces', function () {
+    return view('pages.traces');
+})->name('student.traces');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/profiles', function () {
+    return view('pages.profiles');
+})->name('student.profiles');

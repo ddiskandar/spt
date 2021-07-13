@@ -1,16 +1,14 @@
 <div>
     <div class="flex items-start justify-between">
         <div class="relative flex flex-1 mb-4 rounded-md shadow-sm">
-            <x-input-search placeholder="Mencari pendaftar berdasarkan nama, nomor registrasi, atau alamat rumah ..." />
+            <x-input-search placeholder="Mencari taman berdasarkan nama, NIPD atau tanggal lahir ..." />
         </div>
         <div class="w-16 ml-4">
             <select wire:model="perPage" id="perPage" name="perPage" class="block w-full px-3 py-2 bg-white border border-gray-300 shadow-sm sm:rounded-md focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
-                <option value='4'>4</option>
-                <option value='10'>10</option>
-                <option value='15'>15</option>
-                <option value='20'>20</option>
-                <option value='50'>50</option>
-                <option value='100'>100</option>
+                <option value='9'>9</option>
+                <option value='19'>19</option>
+                <option value='49'>49</option>
+                <option value='99'>99</option>
             </select>
         </div>
     </div>
@@ -25,70 +23,65 @@
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Nama Lengkap / NIPD
+                                        Nama Lengkap
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Angkatan / Jurusan
+                                        NIPD
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         L/P
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Angkatan
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Jurusan
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Tanggal Lahir
                                     </th>
-
                                     <th scope="col" class="relative px-6 py-3">
                                         <span class="sr-only">Edit</span>
                                     </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                                <tr wire:loading>
-                                    <td class="p-6 text-sm font-semibold text-gray-500">
-                                        Loading ...
-                                    </td>
-                                </tr>
                                 @forelse($students as $student)
-                                <tr wire:loading.remove>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 w-10 h-10">
-                                                <img class="w-10 h-10 rounded-full" src="https://ui-avatars.com/api/?name={{ $student->name }}&color=7F9CF5&background=EBF4FF" alt="">
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900">
-                                                    {{ $student->name }}
-                                                </div>
-                                                <div class="text-sm text-gray-500">
-                                                    {{ $student->nipd }}
-                                                </div>
-                                            </div>
+                                <tr class="@if($loop->even) bg-gray-50 @else bg-white @endif">
+                                    <td class="px-6 py-3 whitespace-nowrap">
+                                        <div class="text-sm font-medium text-gray-900 uppercase truncate">
+                                            {{ $student->name }}
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm font-medium text-gray-900 uppercase truncate">
-                                            {{ $student->angkatan->name }}
-                                        </div>
-                                        <div class="text-sm text-gray-500">
-                                            {{ $student->jurusan->name }}
+                                    <td class="px-6 py-3 whitespace-nowrap">
+                                        <div class="text-sm text-gray-600">
+                                            {{ $student->nipd }}
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm font-medium text-gray-900 uppercase truncate">
+                                    <td class="px-6 py-3 whitespace-nowrap">
+                                        <div class="text-sm text-gray-600">
                                             {{ $student->jk }}
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm font-medium text-gray-900 uppercase truncate">
+                                    <td class="px-6 py-3 whitespace-nowrap">
+                                        <div class="text-sm text-gray-600">
+                                            {{ $student->angkatan->name }}
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-3 whitespace-nowrap">
+                                        <div class="text-sm text-gray-600">
+                                            {{ $student->jurusan->name }}
+                                        </div>
+                                    </td>
+
+                                    <td class="px-6 py-3 whitespace-nowrap">
+                                        <div class="text-sm text-gray-600">
                                             {{ date('d/m/Y', strtotime($student->birth_date)) }}
                                         </div>
                                     </td>
 
-                                    <td class="px-6 py-4 whitespace-nowrap">
+                                    <td class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center space-x-2 text-gray-400">
-                                            <x-button-icon>
-                                                <x-icon-eye />
-                                            </x-button-icon>
                                             <x-button-icon>
                                                 <a href="#">
                                                     <x-icon-pencil-alt />
@@ -98,8 +91,8 @@
                                     </td>
                                 </tr>
                                 @empty
-                                <tr wire:loading.remove>
-                                    <td colspan=" 5" class="p-6 text-sm text-center text-gray-500">
+                                <tr>
+                                    <td colspan="7" class="p-6 text-sm text-center text-gray-500">
                                         <div class="flex items-center justify-center py-12">
                                             <x-icon-ban />
                                             <span class="ml-2 font-semibold">Tidak ada data yang ditemukan</span>
@@ -109,7 +102,7 @@
                                 @endforelse
                             </tbody>
                         </table>
-                        <div wire:loading.remove class="px-2 py-3 bg-gray-50 sm:px-6">
+                        <div class="px-2 py-3 bg-gray-50 sm:px-6">
                             <div class="px-4 sm:px-0">
                                 {{ $students->links() }}
                             </div>

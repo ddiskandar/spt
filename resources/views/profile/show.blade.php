@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex flex-col items-start justify-between md:flex-row md:items-center">
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                {{ auth()->user()->student->name }}
+                {{ auth()->user()->name ?: auth()->user()->student->name }}
             </h2>
             <div class="mt-4 md:mt-0">
                 <a href="{{ url()->previous() }}">
@@ -25,6 +25,8 @@
 
             <x-jet-section-border />
             @endif
+
+            @if (auth()->user()->role == 'student')
 
             <div class="mt-10 sm:mt-0">
                 @livewire('student.trace-student')
@@ -55,6 +57,8 @@
             </div>
 
             <x-jet-section-border />
+
+            @endif
 
             <div class="mt-10 sm:mt-0">
                 @livewire('student.update-email')
@@ -92,7 +96,7 @@
             @endif
         </div>
     </div>
-    
+
     <x-slot name="scripts">
     </x-slot>
 </x-app-layout>
