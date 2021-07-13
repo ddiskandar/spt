@@ -1,4 +1,7 @@
 <div>
+
+
+
     <div class="flex items-start justify-between">
         <div class="relative flex flex-1 mb-4 rounded-md shadow-sm">
             <x-input-search placeholder="Mencari tamatan berdasarkan nama ..." />
@@ -10,6 +13,50 @@
                 <option value='50'>50</option>
                 <option value='100'>100</option>
             </select>
+        </div>
+    </div>
+
+    <div class="mb-6">
+        <div class="overflow-hidden shadow sm:rounded-md">
+            <div class="px-4 py-5 bg-gray-50 sm:p-6">
+                <div class="grid grid-cols-4 gap-6">
+                    <div class="col-span-4 sm:col-span-1">
+                        <x-jet-label for="filterAngkatan" value="Angkatan" />
+                        <select wire:model="filterAngkatan" id="filterAngkatan" name="filterAngkatan" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
+                            <option value=''>Semua</option>
+                            @foreach(\App\Models\Year::latest('id')->get() as $angkatan )
+                            <option value="{{ $angkatan->id }}">{{ $angkatan->id . ' : ' . $angkatan->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-span-4 sm:col-span-1">
+                        <x-jet-label for="filterJurusan" value="Jurusan" />
+                        <select wire:model="filterJurusan" id="filterJurusan" name="filterJurusan" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
+                            <option value=''>Semua</option>
+                            @foreach(\App\Models\Major::all() as $jurusan )
+                            <option value="{{ $jurusan->slug }}">{{ $jurusan->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-span-4 sm:col-span-1">
+                        <x-jet-label for="filterAktivitas" value="Jejak Kelulusan" />
+                        <select wire:model="filterAktivitas" id="filterAktivitas" name="filterAktivitas" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
+                            <option value=''>Semua</option>
+                            @foreach(\App\Models\Activity::all() as $activity )
+                            <option value="{{ $activity->id }}">{{ $activity->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-span-4 sm:col-span-1">
+                        <x-jet-label for="filterPublikasi" value="Publikasi" />
+                        <select wire:model="filterPublikasi" id="filterPublikasi" name="filterPublikasi" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
+                            <option value=''>Semua</option>
+                            <option value="1">Sudah</option>
+                            <option value="0">Belum</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -116,7 +163,7 @@
                                     </td>
                                 </tr>
                                 @empty
-                                <tr wire:loading.remove>
+                                <tr>
                                     <td colspan=" 5" class="p-6 text-sm text-center text-gray-500">
                                         <div class="flex items-center justify-center py-12">
                                             <x-icon-ban />
@@ -269,12 +316,14 @@
             </p>
         </div>
 
+        @isset($traceDetail->pernah_bekerja)
         <div class="mt-6 ">
             <div class="inline-flex items-center">
-                <input wire:model="pernah_bekerja" id="pernah_bekerja" name="pernah_bekerja" type="checkbox" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                <input {!! $traceDetail->pernah_bekerja == '1' ? 'checked' : '' !!} disabled id="pernah_bekerja" name="pernah_bekerja" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
                 <x-jet-label class="ml-2" value="Pernah bekerja" />
             </div>
         </div>
+        @endisset
 
         @isset($traceDetail->activity_id)
 
@@ -323,18 +372,23 @@
             </p>
         </div>
 
+        @isset($traceDetail->bekerja_gaji_standar_umr)
         <div class="mt-6 ">
             <div class="inline-flex items-center">
-                <input wire:model="bekerja_gaji_standar_umr" id="bekerja_gaji_standar_umr" name="bekerja_gaji_standar_umr" type="checkbox" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                <input {!! $traceDetail->bekerja_gaji_standar_umr == '1' ? 'checked' : '' !!} disabled id="bekerja_gaji_standar_umr" name="bekerja_gaji_standar_umr" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
                 <x-jet-label class="ml-2" value="Gaji di atas UMR" />
             </div>
         </div>
+        @endisset
+
+        @isset($traceDetail->bekerja_sebelum_lulus)
         <div class="mt-6 ">
             <div class="inline-flex items-center">
-                <input wire:model="bekerja_sebelum_lulus" id="bekerja_sebelum_lulus" name="bekerja_sebelum_lulus" type="checkbox" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                <input {!! $traceDetail->bekerja_sebelum_lulus == '1' ? 'checked' : '' !!} disabled id="bekerja_sebelum_lulus" name="bekerja_sebelum_lulus" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
                 <x-jet-label class="ml-2" value="Bekerja sebelum lulus" />
             </div>
         </div>
+        @endisset
 
         <div class="mt-6 ">
             <x-jet-label value="Masa tunggu" />
@@ -352,12 +406,15 @@
                 {{ $traceDetail->tanggal_masuk ?? '...' }}
             </p>
         </div>
+
+        @isset($traceDetail->linear)
         <div class="mt-6 ">
             <div class="inline-flex items-center">
-                <input wire:model="linear" id="linear" name="linear" type="checkbox" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
-                <x-jet-label class="ml-2" value="Linear" />
+                <input {!! $traceDetail->linear == '1' ? 'checked' : '' !!} disabled id="linear" name="linear" type="checkbox" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                <x-jet-label class="ml-2" value="Sesuai kompetensi" />
             </div>
         </div>
+        @endisset
 
         @endif
 

@@ -14,9 +14,9 @@ class DashboardController extends Controller
     {
         $years = Year::pluck('id')->toArray();
 
-        $students = Student::select('year_id', 'major')->get();
+        $students = \DB::table('students')->select('year_id', 'major')->get();
 
-        $profiles = Profile::select('published')->get();
+        $profiles = \DB::table('profiles')->select('published')->get();
         
         $tamatan = [
             $students->where('year_id', $years[0])->count(),

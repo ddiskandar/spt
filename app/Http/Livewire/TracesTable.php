@@ -18,6 +18,10 @@ class TracesTable extends Component
     public $traceDetail;
 
     public $perPage = 10;
+    public $filterAngkatan;
+    public $filterJurusan;
+    public $filterAktivitas;
+    public $filterPublikasi;
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -43,7 +47,25 @@ class TracesTable extends Component
     {
         return view('livewire.traces-table', [
             'traces' => Trace::query()
-                ->with('student')
+                ->select(
+                    'id',
+                    'student_id',
+                    'activity_id',
+                )
+                ->with(
+                    'student', 
+                    'student.user:id,name,profile_photo_path', 
+                    'student.profile', 
+                    'student.jurusan', 
+                    'student.angkatan',
+                    'activity:id,name', 
+                )
+                ->whereHas('student', function ($query) {
+                    $query->where('name', 'like', '%' . $this->search . '%'); 
+                })
+                ->whereHas('activity', function ($query) {
+                    $query->where('activity_id', 'like', '%' . $this->filterAktivitas . '%');
+                })
                 ->latest('updated_at')
                 ->paginate($this->perPage),
         ]);
