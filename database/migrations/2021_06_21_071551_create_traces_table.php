@@ -18,27 +18,33 @@ class CreateTracesTable extends Migration
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->foreignId('activity_id')->nullable();
 
+            // melanjutkan
+            $table->boolean('melanjutkan_linear')->nullable();
+            $table->date('melanjutkan_tanggal_mulai')->nullable();
             $table->string('melanjutkan_kampus')->nullable();
             $table->string('melanjutkan_prodi')->nullable();
 
+            // bekerja
+            $table->boolean('bekerja_linear')->nullable();
+            $table->date('bekerja_tanggal_mulai')->nullable();
+            $table->boolean('bekerja_sebelum_lulus')->nullable();
+            $table->integer('bekerja_masa_tunggu')->nullable();
+            $table->boolean('bekerja_melalui_bkk')->nullable();
             $table->string('bekerja_nama')->nullable();
             $table->foreignId('dudika_id')->nullable();
+            $table->foreignId('bekerja_bidang_bisnis')->nullable();
             $table->foreignId('profession_id')->nullable();
-            
-            $table->foreignId('business_id')->nullable();
-            $table->foreignId('income_id')->nullable();
-           
             $table->foreignId('bond_id')->nullable();
+            $table->foreignId('bekerja_penghasilan')->nullable();
             $table->boolean('bekerja_gaji_standar_umr')->nullable();
-            $table->boolean('bekerja_sebelum_lulus')->nullable();
-            $table->boolean('bekerja_melalui_bkk')->nullable();
-            $table->string('bekerja_masa_tunggu')->nullable();
-            
-            $table->boolean('pernah_bekerja')->nullable();
-            $table->date('tanggal_masuk')->nullable();
-            $table->boolean('linear')->nullable();
 
-            $table->string('business_name')->nullable();
+            // wirausaha
+            $table->string('wirausaha_nama')->nullable();
+            $table->foreignId('wirausaha_bidang_bisnis')->nullable();
+            $table->foreignId('wirausaha_penghasilan')->nullable();
+
+            // selain bekerja
+            $table->boolean('pernah_bekerja')->nullable();
 
             $table->timestamps();
         });

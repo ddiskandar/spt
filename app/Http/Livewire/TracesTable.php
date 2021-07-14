@@ -12,6 +12,7 @@ class TracesTable extends Component
     use WithPagination;
 
     public $panel = false;
+    public $published;
 
     public $search = '';
 
@@ -26,6 +27,10 @@ class TracesTable extends Component
     protected $queryString = [
         'search' => ['except' => ''],
         'page' => ['except' => 1],
+        'filterAngkatan' => ['except' => ''],
+        'filterJurusan' => ['except' => ''],
+        'filterAktivitas' => ['except' => ''],
+        'filterPublikasi' => ['except' => ''],
     ];
 
     public function updatingPerPage()
@@ -41,6 +46,14 @@ class TracesTable extends Component
     {
         $this->panel = true;
         $this->traceDetail = $trace;
+        $this->published = $this->traceDetail->student->profile->published;
+    }
+
+    public function updatedPublished()
+    {
+        $this->traceDetail->student->profile->update([
+            'published' => $this->published,
+        ]);
     }
 
     public function render()

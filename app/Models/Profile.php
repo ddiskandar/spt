@@ -15,4 +15,8 @@ class Profile extends Model
     {
         return $this->belongsTo(Student::class);
     }
+
+    protected $casts = [
+        'published' => 'boolean',
+    ];
 }

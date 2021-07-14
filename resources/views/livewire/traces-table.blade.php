@@ -272,10 +272,10 @@
         <div class="mt-6 ">
             <x-jet-label value="Nomor WhatsApp" />
             <div>
-                {{ $traceDetail->phone ?? '...' }}
+                {{ $traceDetail->student->profile->phone ?? '...' }}
                 <div class="inline-flex items-center ml-4">
                     <div class="flex items-center h-5 ">
-                        <input wire:model="join_wa" id="join_wa" name="join_wa" type="checkbox" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                        <input type="checkbox" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
                     </div>
                     <div class="ml-2 ">
                         <label for="join_wa" class="text-sm text-gray-600">Gabung Grup</label>
@@ -368,7 +368,7 @@
         <div class="mt-6 ">
             <x-jet-label value="Penghasilan" />
             <p class="text-sm text-gray-600">
-                {{ $traceDetail->penghasilan->name ?? '...' }}
+                {{ $traceDetail->penghasilan_bekerja->name ?? '...' }}
             </p>
         </div>
 
@@ -401,9 +401,9 @@
 
         @if ($traceDetail->activity_id != '1' && $traceDetail->activity_id != '4')
         <div class="mt-6 ">
-            <x-jet-label value="Tanggal mulai bekerja / masuk perguruan tinggi" />
+            <x-jet-label value="Tanggal mulai bekerja" />
             <p class="text-sm text-gray-600">
-                {{ $traceDetail->tanggal_masuk ?? '...' }}
+                {{ $traceDetail->bekerja_tanggal_mulai ?? '...' }}
             </p>
         </div>
 

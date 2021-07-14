@@ -13,60 +13,87 @@ class TraceStudent extends Component
 
     protected $rules = [
         'state.activity_id' => 'required',
-        'state.linear' => 'nullable|required_unless:state.activity_id,1',
-        'state.pernah_bekerja' => 'required',
-        'state.tanggal_masuk' => 'nullable',
+
+        'state.melanjutkan_linear' => 'nullable|required_if:state.activity_id,3',
+        'state.melanjutkan_tanggal_mulai' => 'nullable|required_if:state.activity_id,3|date',
         'state.melanjutkan_kampus' => 'nullable|required_if:state.activity_id,3|string|max:64',
         'state.melanjutkan_prodi' => 'nullable|required_if:state.activity_id,3|string|max:64',
-        'state.dudika_id' => 'nullable',
-        'state.bekerja_nama' => 'nullable|required_if:state.activity_id,2|max:64',
+        
+        'state.bekerja_linear' => 'nullable|required_if:state.activity_id,2',
+        'state.bekerja_tanggal_mulai' => 'nullable|required_if:state.activity_id,2|date',
         'state.bekerja_sebelum_lulus' => 'nullable|required_if:state.activity_id,2',
-        'state.bekerja_melalui_bkk' => 'nullable|required_if:state.activity_id,2',
         'state.bekerja_masa_tunggu' => 'nullable|required_if:state.activity_id,2',
-        'state.bekerja_gaji_standar_umr' => 'nullable|required_if:state.activity_id,2',
-        'state.income_id' => 'nullable|required_if:state.activity_id,2',
+        'state.bekerja_melalui_bkk' => 'nullable|required_if:state.activity_id,2',
+        'state.bekerja_nama' => 'nullable|required_if:state.activity_id,2|max:64',
+        'state.dudika_id' => 'nullable',
+        'state.bekerja_bidang_bisnis' => 'nullable|required_if:state.activity_id,2',
         'state.profession_id' => 'nullable|required_if:state.activity_id,2',
         'state.bond_id' => 'nullable|required_if:state.activity_id,2',
-        'state.business_id' => 'nullable|required_if:state.activity_id,2',
-        'state.business_name' => 'nullable|string|required_if:state.activity_id,4|max:64',
+        'state.bekerja_penghasilan' => 'nullable|required_if:state.activity_id,2',
+        'state.bekerja_gaji_standar_umr' => 'nullable|required_if:state.activity_id,2',
+        
+        'state.wirausaha_nama' => 'nullable|string|required_if:state.activity_id,4|max:64',
+        'state.wirausaha_bidang_bisnis' => 'nullable|required_if:state.activity_id,4',
+        'state.wirausaha_penghasilan' => 'nullable|required_if:state.activity_id,4',
+        
+        'state.pernah_bekerja' => 'nullable|required_unless:state.activity_id,2',
     ];
 
     protected $messages = [
-        'state.melanjutkan_kampus.required_if' => 'Nama Perguruan tinggi harus di isi',
-        'state.melanjutkan_prodi.required_if' => 'Program studi harus di isi',
+        'state.activity_id.required' => 'Pilih salah satu aktivitas',
+        'state.pernah_bekerja.required_unless' => 'Keterangan pernah bekerja harus dipilih',
 
-        'state.linear.required_unless' => 'harus diisi',
+        'state.melanjutkan_linear.required_if' => 'Keterangan linear harus dipilih',
+        'state.melanjutkan_tanggal_mulai.required_if' => 'Tanggal masuk harus diisi',
+        'state.melanjutkan_kampus.required_if' => 'Nama perguruan tinggi harus diisi',
+        'state.melanjutkan_prodi.required_if' => 'Program studi harus diisi',
 
+        'state.bekerja_linear.required_if' => 'Keterangan linear harus dipilih',
+        'state.bekerja_tanggal_mulai.required_if' => 'Tanggal masuk harus diisi',
+        'state.bekerja_sebelum_lulus.required_if' => 'Harus diisi',
+        'state.bekerja_masa_tunggu.required_if' => 'Masa tunggu harus diisi',
+        'state.bekerja_melalui_bkk.required_if' => 'Harus diisi',
         'state.bekerja_nama.required_if' => 'Nama perusahaan harus diisi',
-        'state.bekerja_sebelum_lulus.required_if' => 'harus diisi',
-        'state.bekerja_melalui_bkk.required_if' => 'harus diisi',
-        'state.bekerja_masa_tunggu.required_if' => 'harus diisi',
-        'state.bekerja_gaji_standar_umr.required_if' => 'harus diisi',
-        'state.income_id.required_if' => 'Penghasilan harus diisi',
-        'state.profession_id.required_if' => 'Pekerjaan harus diisi',
-        'state.bond_id.required_if' => 'harus diisi',
-        'state.business_id.required_if' => 'harus diisi',
-        'state.business_name.required_if' => 'Nama perusahaan harus diisi',
+        //
+        'state.bekerja_bidang_bisnis.required_if' => 'harus dipilih',
+        'state.profession_id.required_if' => 'harus dipilih',
+        'state.bond_id.required_if' => 'harus dipilih',
+        'state.bekerja_penghasilan.required_if' => 'harus dipilih',
+        'state.bekerja_gaji_standar_umr.required_if' => 'harus dipilih',
+
+        //
+        'state.wirausaha_nama.required_if' => 'Nama bisnis harus diisi',
+        'state.wirausaha_bidang_bisnis.required_if' => 'Bidang usaha harus dipilih',
+        'state.wirausaha_penghasilan.required_if' => 'Penghasilan harus dipilih',
+
     ];
 
     protected $validationAttributes = [
-        'state.activity_id' => 'kegiatan',
-        'state.linear' => 'linear',
-        'state.pernah_bekerja' => 'pernah bekerja',
-        'state.tanggal_masuk' => 'tanggal mulai',
-        'state.melanjutkan_kampus' => 'nama perguruan tinggi',
+        'state.activity_id' => 'Aktivitas',
+
+        'state.melanjutkan_linear' => 'melanjutkan_linear',
+        'state.melanjutkan_tanggal_mulai' => 'melanjutkan_tanggal_mulai',
+        'state.melanjutkan_kampus' => 'melanjutkan_kampus',
         'state.melanjutkan_prodi' => 'melanjutkan_prodi',
-        'state.dudika_id' => 'dudika_id',
-        'state.bekerja_nama' => 'bekerja_nama',
+
+        'state.bekerja_linear' => 'bekerja_linear',
+        'state.bekerja_tanggal_mulai' => 'bekerja_tanggal_mulai',
         'state.bekerja_sebelum_lulus' => 'bekerja_sebelum_lulus',
-        'state.bekerja_melalui_bkk' => 'bekerja_melalui_bkk',
         'state.bekerja_masa_tunggu' => 'bekerja_masa_tunggu',
-        'state.bekerja_gaji_standar_umr' => 'bekerja_gaji_standar_umr',
-        'state.income_id' => 'income_id',
+        'state.bekerja_melalui_bkk' => 'bekerja_melalui_bkk',
+        'state.bekerja_nama' => 'bekerja_nama',
+        'state.dudika_id' => 'dudika_id',
+        'state.bekerja_bidang_bisnis' => 'bekerja_bidang_bisnis',
         'state.profession_id' => 'profession_id',
         'state.bond_id' => 'bond_id',
-        'state.business_id' => 'bidang bisnis',
-        'state.business_name' => 'nama usaha',
+        'state.bekerja_penghasilan' => 'bekerja_penghasilan',
+        'state.bekerja_gaji_standar_umr' => 'bekerja_gaji_standar_umr',
+
+        'state.wirausaha_nama' => 'wirausaha_nama',
+        'state.wirausaha_bidang_bisnis' => 'wirausaha_bidang_bisnis',
+        'state.wirausaha_penghasilan' => 'wirausaha_penghasilan',
+
+        'state.pernah_bekerja' => 'pernah_bekerja',
     ];
 
     public function mount()
@@ -84,22 +111,30 @@ class TraceStudent extends Component
         
         $this->trace->update([
             'activity_id' => $this->state['activity_id'],
-            'linear' => $this->state['linear'],
+
             'pernah_bekerja' => $this->state['pernah_bekerja'],
-            'tanggal_masuk' => $this->state['tanggal_masuk'],
+
+            'melanjutkan_linear' => $this->state['melanjutkan_linear'],
+            'melanjutkan_tanggal_mulai' => $this->state['melanjutkan_tanggal_mulai'],
             'melanjutkan_kampus' => $this->state['melanjutkan_kampus'],
             'melanjutkan_prodi' => $this->state['melanjutkan_prodi'],
-            'dudika_id' => $this->state['dudika_id'],
-            'bekerja_nama' => $this->state['bekerja_nama'],
+
+            'bekerja_linear' => $this->state['bekerja_linear'],
+            'bekerja_tanggal_mulai' => $this->state['bekerja_tanggal_mulai'],
             'bekerja_sebelum_lulus' => $this->state['bekerja_sebelum_lulus'],
-            'bekerja_melalui_bkk' => $this->state['bekerja_melalui_bkk'],
             'bekerja_masa_tunggu' => $this->state['bekerja_masa_tunggu'],
-            'bekerja_gaji_standar_umr' => $this->state['bekerja_gaji_standar_umr'],
-            'income_id' => $this->state['income_id'],
+            'bekerja_melalui_bkk' => $this->state['bekerja_melalui_bkk'],
+            'bekerja_nama' => $this->state['bekerja_nama'],
+            'dudika_id' => $this->state['dudika_id'],
+            'bekerja_bidang_bisnis' => $this->state['bekerja_bidang_bisnis'],
             'profession_id' => $this->state['profession_id'],
             'bond_id' => $this->state['bond_id'],
-            'business_id' => $this->state['business_id'],
-            'business_name' => $this->state['business_name'],
+            'bekerja_penghasilan' => $this->state['bekerja_penghasilan'],
+            'bekerja_gaji_standar_umr' => $this->state['bekerja_gaji_standar_umr'],
+
+            'wirausaha_nama' => $this->state['wirausaha_nama'],
+            'wirausaha_bidang_bisnis' => $this->state['wirausaha_bidang_bisnis'],
+            'wirausaha_penghasilan' => $this->state['wirausaha_penghasilan'],
         ]);
 
         $this->emit('saved');

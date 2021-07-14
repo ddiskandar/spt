@@ -38,13 +38,13 @@ class Trace extends Model
         return $this->belongsTo(Dudika::class);
     }
 
-    public function business()
+    public function bidang_bisnis_bekerja()
     {
-        return $this->belongsTo(Business::class, 'business_id');
+        return $this->belongsTo(Business::class, 'bekerja_bidang_bisnis');
     }
 
-    public function penghasilan()
+    public function penghasilan_bekerja()
     {
-        return $this->belongsTo(Income::class, 'income_id');
+        return $this->belongsTo(Income::class, 'bekerja_penghasilan');
     }
 }
