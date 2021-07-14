@@ -103,7 +103,6 @@
                                         </div>
                                     </td>
                                     <td class="w-48 px-6 py-4 whitespace-nowrap">
-                                        @isset ($trace->activity_id)
 
                                         @if ($trace->activity_id == '1')
 
@@ -125,21 +124,22 @@
                                             <span>{{ $trace->activity->name ?? '-'}}</span>
                                         </span>
 
-                                        @else
+                                        @elseif ($trace->activity_id == '4')
 
                                         <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-indigo-600 rounded-full bg-indigo-50">
                                             <span class="w-2 h-2 mr-2 bg-indigo-500 rounded-full"></span>
                                             <span>{{ $trace->activity->name ?? '-'}}</span>
                                         </span>
 
-                                        @endif
-
                                         @else
+
                                         <span class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-gray-500 bg-gray-100 rounded-full">
                                             <span class="w-2 h-2 mr-2 bg-gray-400 rounded-full"></span>
-                                            <span>belum mengisi</span>
+                                            <span>{{ $trace->activity->name ?? '-'}}</span>
                                         </span>
-                                        @endisset
+
+                                        @endif
+
                                     </td>
                                     <td class="w-32 px-6 py-4 whitespace-nowrap">
                                         @if ($trace->student->profile->published)

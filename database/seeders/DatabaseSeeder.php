@@ -16,10 +16,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('activities')->insert([
-            ['name' => 'belum ada aktivitas'],
-            ['name' => 'bekerja'],
-            ['name' => 'melanjutkan'],
-            ['name' => 'wirausaha'],
+            ['id' => 1, 'name' => 'belum ada aktivitas'],
+            ['id' => 2, 'name' => 'bekerja'],
+            ['id' => 3, 'name' => 'melanjutkan'],
+            ['id' => 4, 'name' => 'wirausaha'],
+            ['id' => 99, 'name' => 'belum diisi', ],
         ]);
 
         DB::table('bonds')->insert([

@@ -16,7 +16,7 @@
                             <a href="/user/profile" class="flex items-center w-full group">
                                 <span class="flex items-center px-6 py-4 text-sm font-medium">
 
-                                    @isset (auth()->user()->student->trace->activity_id)
+                                    @if (auth()->user()->student->trace->activity_id != '99')
 
                                     <x-status-checked />
 
@@ -26,7 +26,7 @@
                                         <span class="text-indigo-600">01</span>
                                     </span>
 
-                                    @endisset
+                                    @endif
 
                                     <span class="ml-4 text-sm font-medium text-indigo-600">Jejak Kelulusan</span>
                                 </span>

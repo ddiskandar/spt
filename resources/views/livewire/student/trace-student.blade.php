@@ -12,7 +12,7 @@
         <div class="col-span-6">
             <x-jet-label for="state.activity_id" :value="__('Aktivitas Sekarang')" />
             <div class="grid grid-cols-2 gap-4 mt-2 md:grid-cols-3">
-                @foreach (App\Models\Activity::all() as $activity)
+                @foreach (App\Models\Activity::whereNotIn('id', [99])->get() as $activity)
                 <div class="">
                     <input class="hidden" wire:model="state.activity_id" id="{{ $activity->id }}" type="radio" value="{{ $activity->id }}" />
                     <label for="{{ $activity->id }}">
@@ -32,7 +32,7 @@
 
         </div>
 
-        @isset ($state['activity_id'])
+        @if ($state['activity_id'] != '99')
 
         <div class="w-full col-span-6 border-t border-gray-200"></div>
 
@@ -242,7 +242,7 @@
 
         @endif
 
-        @endisset
+        @endif
 
     </x-slot>
 

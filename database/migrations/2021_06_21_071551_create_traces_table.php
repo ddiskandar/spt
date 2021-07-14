@@ -16,7 +16,7 @@ class CreateTracesTable extends Migration
         Schema::create('traces', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
-            $table->foreignId('activity_id')->nullable();
+            $table->foreignId('activity_id')->constrained();
 
             // melanjutkan
             $table->boolean('melanjutkan_linear')->nullable();

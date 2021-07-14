@@ -97,7 +97,8 @@ class Registration extends Component
             ]);
 
             Trace::create([
-                'student_id' => $this->student->id
+                'student_id' => $this->student->id,
+                'activity_id' => 99,
             ]);
 
             Auth::login($user);

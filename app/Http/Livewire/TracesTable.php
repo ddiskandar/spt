@@ -86,7 +86,7 @@ class TracesTable extends Component
                     $query->where('name', 'like', '%' . $this->search . '%'); 
                 })
                 ->whereHas('activity', function ($query) {
-                    $query->where('activity_id', 'like', '%' . $this->filterAktivitas . '%');
+                    $query->where('activity_id', 'like', '%' . $this->filterAktivitas);
                 })
                 ->latest('updated_at')
                 ->paginate($this->perPage),
