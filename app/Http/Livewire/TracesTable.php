@@ -13,6 +13,7 @@ class TracesTable extends Component
 
     public $panel = false;
     public $published;
+    public $join_wa;
 
     public $search = '';
 
@@ -47,12 +48,20 @@ class TracesTable extends Component
         $this->panel = true;
         $this->traceDetail = $trace;
         $this->published = $this->traceDetail->student->profile->published;
+        $this->join_wa = $this->traceDetail->student->profile->join_wa;
     }
 
     public function updatedPublished()
     {
         $this->traceDetail->student->profile->update([
             'published' => $this->published,
+        ]);
+    }
+
+    public function updatedJoinWa()
+    {
+        $this->traceDetail->student->profile->update([
+            'join_wa' => $this->join_wa,
         ]);
     }
 

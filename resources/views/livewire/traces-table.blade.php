@@ -275,7 +275,7 @@
                 {{ $traceDetail->student->profile->phone ?? '...' }}
                 <div class="inline-flex items-center ml-4">
                     <div class="flex items-center h-5 ">
-                        <input type="checkbox" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                        <input wire:model="join_wa" type="checkbox" class="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
                     </div>
                     <div class="ml-2 ">
                         <label for="join_wa" class="text-sm text-gray-600">Gabung Grup</label>
