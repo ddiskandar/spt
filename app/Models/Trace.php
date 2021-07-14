@@ -42,9 +42,17 @@ class Trace extends Model
     {
         return $this->belongsTo(Business::class, 'bekerja_bidang_bisnis');
     }
+    public function bidang_bisnis_wirausaha()
+    {
+        return $this->belongsTo(Business::class, 'wirausaha_bidang_bisnis');
+    }
 
     public function penghasilan_bekerja()
     {
         return $this->belongsTo(Income::class, 'bekerja_penghasilan');
+    }
+    public function penghasilan_wirausaha()
+    {
+        return $this->belongsTo(Income::class, 'wirausaha_penghasilan');
     }
 }
