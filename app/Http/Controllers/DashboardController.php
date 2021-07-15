@@ -31,7 +31,6 @@ class DashboardController extends Controller
             $students->where('year_id', $years[6])->count(),
             $students->where('year_id', $years[7])->count(),
             $students->where('year_id', $years[8])->count(),
-            $students->where('year_id', $years[9])->count(),
         ];
 
         $mm = [
@@ -44,7 +43,6 @@ class DashboardController extends Controller
             $students->where('year_id', $years[6])->where('major', 'MM')->count(),
             $students->where('year_id', $years[7])->where('major', 'MM')->count(),
             $students->where('year_id', $years[8])->where('major', 'MM')->count(),
-            $students->where('year_id', $years[9])->where('major', 'MM')->count(),
         ];
 
         $bdp = [
@@ -54,10 +52,9 @@ class DashboardController extends Controller
             $students->where('year_id', $years[3])->where('major', 'PN')->count(),
             $students->where('year_id', $years[4])->where('major', 'PN')->count(),
             $students->where('year_id', $years[5])->where('major', 'PN')->count(),
-            $students->where('year_id', $years[6])->where('major', 'PN')->count(),
+            $students->where('year_id', $years[6])->where('major', 'BDP')->count(),
             $students->where('year_id', $years[7])->where('major', 'BDP')->count(),
             $students->where('year_id', $years[8])->where('major', 'BDP')->count(),
-            $students->where('year_id', $years[9])->where('major', 'BDP')->count(),
         ];
 
         $card = [

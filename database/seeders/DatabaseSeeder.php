@@ -174,7 +174,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('years')->insert([
-            ['id' => 2012, 'name' => '2011/2012'],
             ['id' => 2013, 'name' => '2012/2013'],
             ['id' => 2014, 'name' => '2013/2014'],
             ['id' => 2015, 'name' => '2014/2015'],
