@@ -6,6 +6,7 @@ use App\Models\Profile;
 use App\Models\Student;
 use App\Models\Year;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class DashboardController extends Controller
@@ -16,9 +17,9 @@ class DashboardController extends Controller
 
         $years = Year::pluck('id')->toArray();
 
-        $students = \DB::table('students')->select('year_id', 'major')->get();
+        $students = DB::table('students')->select('year_id', 'major')->get();
 
-        $profiles = \DB::table('profiles')->select('published')->get();
+        $profiles = DB::table('profiles')->select('published')->get();
         
         $tamatan = [
             $students->where('year_id', $years[0])->count(),
