@@ -12,6 +12,8 @@ class DashboardController extends Controller
 {
     public function __invoke()
     {
+        abort_if(auth()->user()->role != 'admin', 403);
+
         $years = Year::pluck('id')->toArray();
 
         $students = \DB::table('students')->select('year_id', 'major')->get();
