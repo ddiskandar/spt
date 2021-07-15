@@ -84,6 +84,11 @@ class TracesTable extends Component
                 )
                 ->whereHas('student', function ($query) {
                     $query->where('name', 'like', '%' . $this->search . '%'); 
+                    $query->where('major', 'like', '%' . $this->filterJurusan); 
+                    $query->where('year_id', 'like', '%' . $this->filterAngkatan); 
+                    $query->whereHas('profile', function($query) {
+                        $query->where('published','like', '%' . $this->filterPublikasi);
+                    });
                 })
                 ->whereHas('activity', function ($query) {
                     $query->where('activity_id', 'like', '%' . $this->filterAktivitas);
