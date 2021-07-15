@@ -35,7 +35,7 @@ class Student extends Model
 
     public function trace()
     {
-        return $this->hasOne(Trace::class);
+        return $this->hasOne(Trace::class, 'student_id');
     }
 
     public function profile()
