@@ -15,7 +15,7 @@
     </div>
 
     <div class="mx-auto mt-6 max-w-7xl sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 gap-3 lg:grid-cols-3">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
 
             <div class="overflow-hidden bg-white shadow sm:rounded-lg">
                 <div class="p-6">
@@ -30,11 +30,11 @@
                     <div class="mt-2 divide-y divide-gray-100 divide-solid">
                         <div class="flex items-center justify-between py-2">
                             <div class="text-sm text-gray-500">Sesuai kompetensi</div>
-                            <div class="text-sm">{{ $data['melanjutkan']['linear'] }}</div>
+                            <div class="mr-2 text-sm font-semibold text-green-500">{{ $data['melanjutkan']['linear'] }}</div>
                         </div>
                         <div class="flex items-center justify-between py-2">
                             <div class="text-sm text-gray-500">Tidak sesuai kompetensi</div>
-                            <div class="text-sm">{{ $data['melanjutkan']['tidak_linear'] }}</div>
+                            <div class="mr-2 text-sm font-semibold text-red-500">{{ $data['melanjutkan']['tidak_linear'] }}</div>
                         </div>
                     </div>
                 </div>
@@ -72,19 +72,19 @@
                         </div>
                         <div class="flex items-center justify-between py-2">
                             <div class="text-sm text-gray-500">Bekerja sesuai kompetensi</div>
-                            <div class="mr-2 text-sm font-semibold text-gray-700">{{ $data['bekerja']['linear'] }}</div>
+                            <div class="mr-2 text-sm font-semibold text-green-500">{{ $data['bekerja']['linear'] }}</div>
                         </div>
                         <div class="flex items-center justify-between py-2">
                             <div class="text-sm text-gray-500">Bekerja tidak sesuai kompetensi</div>
-                            <div class="mr-2 text-sm font-semibold text-gray-700">{{ $data['bekerja']['tidak_linear'] }}</div>
+                            <div class="mr-2 text-sm font-semibold text-red-500">{{ $data['bekerja']['tidak_linear'] }}</div>
                         </div>
                         <div class="flex items-center justify-between py-2">
                             <div class="text-sm text-gray-500">Mendapat gaji standar UMR</div>
-                            <div class="mr-2 text-sm font-semibold text-gray-700">{{ $data['bekerja']['umr'] }}</div>
+                            <div class="mr-2 text-sm font-semibold text-green-500">{{ $data['bekerja']['umr'] }}</div>
                         </div>
                         <div class="flex items-center justify-between py-2">
                             <div class="text-sm text-gray-500">Mendapat gaji dibawah standar UMR</div>
-                            <div class="mr-2 text-sm font-semibold text-gray-700">{{ $data['bekerja']['tidak_umr'] }}</div>
+                            <div class="mr-2 text-sm font-semibold text-red-500">{{ $data['bekerja']['tidak_umr'] }}</div>
                         </div>
                     </div>
 
@@ -102,50 +102,11 @@
                     </div>
                     <div class="flex items-center justify-between mt-4">
                         <div class="text-sm text-gray-500">Berwirausaha dalam 3 tahun terakhir</div>
-                        <div class="text-sm">...</div>
+                        <div class="text-sm">{{ $data['wirausaha']['wirausaha_tiga'] }}</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- <div class="mx-auto mt-6 max-w-7xl sm:px-6 lg:px-8">
-        <div class="overflow-hidden bg-white shadow sm:rounded-lg">
-            <div class="grid grid-cols-1 bg-white lg:grid-cols-3">
-                <div class="p-6">
-                    <div class="text-left">
-                        <div class="text-sm text-gray-500">
-                            {{ __('Jumlah Total Tamatan') }}
-                        </div>
-                        <div class="mt-2 text-3xl font-semibold leading-7 text-gray-900">
-                            1
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-6 border-t border-gray-100 lg:border-t-0 lg:border-l-2">
-                    <div class="text-left">
-                        <div class="text-sm text-gray-500">
-                            {{ __('Melaporkan Jejak Kelulusan') }}
-                        </div>
-                        <div class="mt-2 text-3xl font-semibold leading-7 text-gray-900">
-                            2
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-6 border-t border-gray-100 lg:border-t-0 lg:border-l-2">
-                    <div class="text-left">
-                        <div class="text-sm text-gray-500">
-                            {{ __('Alumni Sukses yang Sudah dipublikasi') }}
-                        </div>
-                        <div class="mt-2 text-3xl font-semibold leading-7 text-gray-900">
-                            3
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
 </div>

@@ -26,7 +26,9 @@ class JoinWa extends Component
     public function mount()
     {
         $this->link_group = Year::query()
-            ->find( auth()->user()->student->year_id );
+            ->where('id', auth()->user()->student->year_id )
+            ->first()
+            ->wa_group;
 
         $this->profile = Profile::query()
             ->whereStudentId( auth()->user()->student->id )
