@@ -109,10 +109,8 @@
 
                                     <td class="px-6 py-3 whitespace-nowrap">
                                         <div class="flex items-center space-x-2 text-gray-400">
-                                            <x-button-icon>
-                                                <a href="#">
-                                                    <x-icon-pencil-alt />
-                                                </a>
+                                            <x-button-icon wire:click="studentDetail({{ $student->id }})">
+                                                <x-icon-pencil-alt />
                                             </x-button-icon>
                                         </div>
                                     </td>
@@ -138,7 +136,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+    @include('partials.student-detail')
 
 </div>

@@ -10,6 +10,9 @@ class StudentsTable extends Component
 {
     use WithPagination;
 
+    public $panel = false;
+    public $studentDetail;
+
     public $search = '';
 
     public $perPage = 9;
@@ -23,6 +26,12 @@ class StudentsTable extends Component
         'filterAngkatan' => ['except' => ''],
         'filterJurusan' => ['except' => ''],
     ];
+
+    public function studentDetail(Student $student)
+    {
+        $this->panel = true;
+        $this->studentDetail = $student;
+    }
 
     public function updatingPerPage()
     {
