@@ -1,7 +1,7 @@
 <div>
     <div class="flex items-start justify-between">
         <div class="relative flex flex-1 mb-4 rounded-md shadow-sm">
-            <x-input-search placeholder="Mencari taman berdasarkan nama, NIPD atau tanggal lahir ..." />
+            <x-input-search placeholder="Mencari taman berdasarkan nama atau NIPD ..." />
         </div>
         <div class="w-16 ml-4">
             <select wire:model="perPage" id="perPage" name="perPage" class="block w-full px-3 py-2 bg-white border border-gray-300 shadow-sm sm:rounded-md focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
@@ -13,7 +13,34 @@
         </div>
     </div>
 
-    <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
+    <div class="">
+        <div class="overflow-hidden shadow sm:rounded-md">
+            <div class="px-4 py-5 bg-gray-50 sm:p-6">
+                <div class="grid grid-cols-6 gap-6">
+                    <div class="col-span-6 sm:col-span-2">
+                        <x-jet-label for="filterAngkatan" value="Angkatan" />
+                        <select wire:model="filterAngkatan" id="filterAngkatan" name="filterAngkatan" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
+                            <option value=''>Semua</option>
+                            @foreach(\App\Models\Year::latest('id')->get() as $angkatan )
+                            <option value="{{ $angkatan->id }}">{{ $angkatan->id . ' : ' . $angkatan->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-span-6 sm:col-span-2">
+                        <x-jet-label for="filterJurusan" value="Jurusan" />
+                        <select wire:model="filterJurusan" id="filterJurusan" name="filterSchool" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
+                            <option value=''>Semua</option>
+                            @foreach(\App\Models\Major::all() as $jurusan )
+                            <option value="{{ $jurusan->slug }}">{{ $jurusan->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-6 overflow-hidden bg-white shadow-xl sm:rounded-lg">
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -112,33 +139,6 @@
             </div>
         </div>
 
-    </div>
-
-    <div class="mt-6">
-        <div class="overflow-hidden shadow-lg sm:rounded-md">
-            <div class="px-4 py-5 bg-gray-50 sm:p-6">
-                <div class="grid grid-cols-6 gap-6">
-                    <div class="col-span-6 sm:col-span-2">
-                        <x-jet-label for="filterAngkatan" value="Angkatan" />
-                        <select wire:model="filterAngkatan" id="filterAngkatan" name="filterAngkatan" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
-                            <option value=''>Semua</option>
-                            @foreach(\App\Models\Year::latest('id')->get() as $angkatan )
-                            <option value="{{ $angkatan->id }}">{{ $angkatan->id . ' : ' . $angkatan->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-span-6 sm:col-span-2">
-                        <x-jet-label for="filterJurusan" value="Jurusan" />
-                        <select wire:model="filterJurusan" id="filterJurusan" name="filterSchool" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-400 focus:border-gray-400 sm:text-sm">
-                            <option value=''>Semua</option>
-                            @foreach(\App\Models\Major::all() as $jurusan )
-                            <option value="{{ $jurusan->slug }}">{{ $jurusan->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 </div>
