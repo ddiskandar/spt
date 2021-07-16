@@ -8,7 +8,7 @@
         </a>
     </div>
     <div>
-        <h2 class="text-3xl font-bold text-white">Sistem Penelusuran Tamatan</h2>
+        <h2 class="text-3xl font-bold text-white">Ikatan Keluarga Alumni</h2>
         <h2 class="text-3xl font-bold text-white">SMK Plus Al-Farhan</h2>
         <p class="mt-3 text-sm text-indigo-100 text-semibold">Gabung bersama banyak alumni lainnya. Jalin erat silaturahmi. Dapatkan banyak manfaat.</p>
     </div>

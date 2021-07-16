@@ -25,6 +25,10 @@
                         {{ __('Jejak Kelulusan') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('setting') }}" :active="request()->routeIs('setting')">
+                        {{ __('Pengaturan') }}
+                    </x-jet-nav-link>
+
                     @else
 
                     <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">

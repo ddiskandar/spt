@@ -31,4 +31,8 @@ Route::middleware(['auth', 'admin'])->group(function() {
     Route::get('/traces', function () {
         return view('pages.traces');
     })->name('student.traces');
+
+    Route::get('/setting', function () {
+        return view('pages.setting');
+    })->name('setting');
 });
