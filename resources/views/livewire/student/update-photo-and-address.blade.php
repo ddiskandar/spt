@@ -20,7 +20,7 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-            <x-jet-label for="photo" value="{{ __('Photo di tempat aktivitas sekarang') }}" />
+            <x-jet-label for="photo" value="{{ __('Photo di tempat kerja atau aktivitas sekarang') }}" />
 
             <!-- Current Profile Photo -->
             <div class="mt-2" x-show="! photoPreview">
