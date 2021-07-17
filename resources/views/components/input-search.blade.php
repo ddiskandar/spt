@@ -7,6 +7,6 @@
         </svg>
     </div>
 
-    <input wire:model.debounce.300ms="search" type="search" {!! $attributes->merge(['class' => 'block w-full pl-10 border-gray-300 shadow-xs sm:rounded-md sm:text-sm sm:leading-5 focus:border-gray-300 focus:ring focus:ring-gray-200 focus:ring-opacity-50']) !!} >
+    <input wire:model.debounce.300ms="search" type="search" {!! $attributes->merge(['class' => 'block w-full pl-10 border-gray-300 shadow-xs sm:rounded-md sm:text-sm sm:leading-5 focus:border-gray-300 focus:ring focus:ring-gray-200 focus:ring-opacity-50 uppercase']) !!} >
     
 </div>

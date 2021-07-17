@@ -1,6 +1,6 @@
 <div class="w-full px-12 lg:w-96 ">
     <div class="pb-12 lg:hidden">
-        <a href="/" class="flex items-center text-sm font-semibold text-indigo-500 uppercase ">
+        <a href="https://smkplusalfarhan.sch.id" class="flex items-center text-sm font-semibold text-indigo-500 uppercase ">
             <svg class="w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
             </svg>

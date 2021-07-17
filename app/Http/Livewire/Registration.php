@@ -52,7 +52,7 @@ class Registration extends Component
         ]);
         
         $this->student = Student::query()
-            ->where('name', $this->name)
+            ->where('name', strtoupper($this->name))
             ->where('year_id', $this->year)
             ->where('birth_date', $this->birth_date)
             ->first();
@@ -81,7 +81,7 @@ class Registration extends Component
         DB::transaction( function () {
             
             $user = User::create([
-                'name' => $this->name,
+                'name' => strtoupper($this->name),
                 'email' => $this->email,
                 'password' => Hash::make($this->password),
                 'remember_token' => Str::random(10),
