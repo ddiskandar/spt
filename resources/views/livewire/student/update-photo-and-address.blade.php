@@ -1,10 +1,10 @@
 <x-jet-form-section submit="update">
     <x-slot name="title">
-        {{ __('Photo aktivitas sekarang dan alamat tinggal') }}
+        {{ __('Photo dan alamat tinggal') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Photo di tempat aktivitas sekarang dan alamat tempat tinggal') }}
+        {{ __('File photo max 1 MB') }}
     </x-slot>
 
     <x-slot name="form">
@@ -20,7 +20,7 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-            <x-jet-label for="photo" value="{{ __('Photo sedang beraktivitas') }}" />
+            <x-jet-label for="photo" value="{{ __('Photo di tempat aktivitas sekarang') }}" />
 
             <!-- Current Profile Photo -->
             <div class="mt-2" x-show="! photoPreview">

@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Testimoni dan harapan dan doa untuk sekolah yang lebih baik') }}
+        {{ __('Testimoni dan doa untuk sekolah') }}
     </x-slot>
 
     <x-slot name="form">

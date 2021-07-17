@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('File photo max 1MB.') }}
+        {{ __('File photo max 1 MB') }}
     </x-slot>
 
     <x-slot name="form">
