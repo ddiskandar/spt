@@ -42,7 +42,7 @@
         </div>
 
         <div class="mt-4">
-            <x-jet-label for="password" value="{{ __('Password') }}" />
+            <x-jet-label for="password" value="{{ __('Password (min 6 karakter)') }}" />
             <x-jet-input wire:model.defer="password" id="password" class="block w-full mt-1" type="password" name="password" autocomplete="new-password" />
         </div>
 

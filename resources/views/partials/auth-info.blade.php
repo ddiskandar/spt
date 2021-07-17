@@ -1,6 +1,6 @@
 <div class="flex flex-col max-w-md min-h-screen mx-auto sm:justify-center">
     <div class="pb-24">
-        <a href="/" class="flex items-center text-sm font-semibold text-white uppercase">
+        <a href="https://smkplusalfarhan.sch.id" class="flex items-center text-sm font-semibold text-white uppercase">
             <svg class="w-6 h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
             </svg>

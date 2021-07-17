@@ -19,7 +19,7 @@
                         <dl class="grid flex-1 grid-cols-1 mt-6 md:mt-0 gap-x-4 gap-y-6 sm:grid-cols-2">
                             <div class="sm:col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">
-                                    Full name
+                                    Nama lengkap
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
                                     {{ auth()->user()->student->name }}
@@ -27,7 +27,7 @@
                             </div>
                             <div class="sm:col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">
-                                    Email address
+                                    Alamat Email
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
                                     {{ auth()->user()->email }}
@@ -51,7 +51,7 @@
                             </div>
                             <div class="sm:col-span-1">
                                 <dt class="text-sm font-medium text-gray-500">
-                                    Kompetensi Keahlian
+                                    Jurusan
                                 </dt>
                                 <dd class="mt-1 text-sm text-gray-900">
                                     {{ auth()->user()->student->jurusan->name }}

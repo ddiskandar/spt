@@ -116,7 +116,7 @@
                         <li class="relative md:flex-1 md:flex">
                             <a href="/user/profile" class="flex items-center w-full group">
                                 <span class="flex items-center px-6 py-4 text-sm font-medium">
-                                    @if (auth()->user()->student->profile->join_wa == '1')
+                                    @isset (auth()->user()->student->profile->phone)
 
                                     <x-status-checked />
 
@@ -126,9 +126,9 @@
                                         <span class="text-indigo-600">05</span>
                                     </span>
 
-                                    @endif
+                                    @endisset
 
-                                    <span class="ml-4 text-sm font-medium text-indigo-600">Gabung Grup WA</span>
+                                    <span class="ml-4 text-sm font-medium text-indigo-600">Nomor WA</span>
                                 </span>
                             </a>
                         </li>
